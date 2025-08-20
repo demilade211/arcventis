@@ -43,14 +43,15 @@ const Con = styled.section`
             display: none;
         }
     }
-    .text-con{
+    .text-con{ 
         p{
             color: #FFF;
             font-family: Manjari;
             font-size: 25px;
             font-style: normal;
             font-weight: 700;
-            line-height: normal;
+            line-height: normal; 
+            text-align: center;
             @media (max-width: 1200px) {
                 font-size: 14px;
             }
