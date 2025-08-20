@@ -55,7 +55,7 @@ const Navbar = () => {
 
 const LandingNavbarCon = styled.header`
     width:100%;   
-    background: #0B0606;
+    background: #111;
 `;
 
 

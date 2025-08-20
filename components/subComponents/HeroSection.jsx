@@ -34,7 +34,7 @@ const HeroSection = () => {
 const Con = styled.section`  
   width: 100%;  
   display: flex;
-  background: #0B0606; 
+  background: #111;
   @media (max-width: 1200px) {  
     flex-direction: column;
     height: auto;
