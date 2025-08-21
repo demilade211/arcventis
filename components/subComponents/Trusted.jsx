@@ -50,10 +50,10 @@ const Con = styled.section`
             font-size: 25px;
             font-style: normal;
             font-weight: 700;
-            line-height: normal; 
-            text-align: center;
+            line-height: normal;  
             @media (max-width: 1200px) {
                 font-size: 14px;
+                text-align: center;
             }
             span{
                 color: #242020;

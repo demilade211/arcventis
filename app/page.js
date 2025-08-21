@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import AppLayout from '@/layouts/AppLayout';
 import HeroSection from '@/components/subComponents/HeroSection';
 import Trusted from '@/components/subComponents/Trusted';
+import TracingFootprints from '@/components/subComponents/TracingFootprints';
+import Services from '@/components/subComponents/Services';
 
 const Home = () => {
   return (
@@ -12,6 +14,8 @@ const Home = () => {
       <AppLayout>
         <HeroSection />
         <Trusted />
+        <TracingFootprints/>
+        <Services/>
       </AppLayout>
     </Con>
 
