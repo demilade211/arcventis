@@ -6,6 +6,7 @@ import HeroSection from '@/components/subComponents/HeroSection';
 import Trusted from '@/components/subComponents/Trusted';
 import TracingFootprints from '@/components/subComponents/TracingFootprints';
 import Services from '@/components/subComponents/Services';
+import Culture from '@/components/subComponents/Culture';
 
 const Home = () => {
   return (
@@ -15,7 +16,8 @@ const Home = () => {
         <HeroSection />
         <Trusted />
         <TracingFootprints/>
-        <Services/>
+        <Services />
+        <Culture/>
       </AppLayout>
     </Con>
 

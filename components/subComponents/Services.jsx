@@ -5,7 +5,7 @@ import Title1 from '../Title1';
 const Services = () => {
     return (
         <Con>
-            <Title1 heading="Our Services" para="At Arcventives Ltd, we offer end-to-end construction solutions—from concept to completion. Our services are designed to meet the highest standards of quality, safety, and efficiency across every project" />
+            <Title1 to="/services" heading="Our Services" para="At Arcventives Ltd, we offer end-to-end construction solutions—from concept to completion. Our services are designed to meet the highest standards of quality, safety, and efficiency across every project" />
             <ServicesCon>
                 <div className='service'>
                     <img src="/images/services/house 1.gif" alt="img" />

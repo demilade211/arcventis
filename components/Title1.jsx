@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const Title1 = ({heading,para}) => {
+const Title1 = ({heading,para,to}) => {
   return (
     <Con>
         <div className='green-bar'></div>
         <div className='r2 flex items-end justify-between lg:items-center'>
             <h1>{heading}</h1>
-            <span>See All <img className='' alt="img" src='/images/seeall.svg'/></span>
+            {to&&<span>See All <img className='' alt="img" src='/images/seeall.svg'/></span>}
         </div>
         <p>{para}</p>
 
