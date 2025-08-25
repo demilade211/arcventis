@@ -9,60 +9,66 @@ const Footer = () => {
     return (
         <Con>
             <FirstRow>
-                <div className='first'>
-                    <div className='mb-10'><img src="/images/components/flogo.png" alt="img" /></div>
-                    <div className='mb-10'>
-                        <p>Get it on</p>
-                        <div><img src="/images/components/fps.png" alt="img" /></div>
+                <div className=''>
+                    <div className="logo flex items-end" onClick={() => router.push(`/`)}>
+                        <div className="bg-amber-50"><img className="w-full h-full" src="/images/logo.svg" alt="img" /></div>
+                        <img className="" src="/images/logo-txt.svg" alt="img" />
                     </div>
-                    <div className='mb-10'>
-                        <p>Available on the</p>
-                        <div><img src="/images/components/fas.png" alt="img" /></div>
+                    <p>
+                        From architectural design to construction execution, Arcventives delivers spaces that stand the test
+                        of time—trusted by clients across residential, commercial, and industrial sectors.
+                    </p>
+                    <div className='flex items-center gap-2'>
+                        <img className="cursor-pointer" src="/images/footer/fb.svg" alt="img" />
+                        <img className="cursor-pointer" src="/images/footer/tw.svg" alt="img" />
+                        <img className="cursor-pointer" src="/images/footer/inst.svg" alt="img" />
+                        <img className="cursor-pointer" src="/images/footer/linIn.svg" alt="img" />
                     </div>
                 </div>
-                <div className='second'>
-                    <h4>COMPANY</h4>
-                    <p> About Us </p>
-                    <p>Ambassadors</p>
-                    <p>Acceptable Use Policy</p>
-                    <p>Referral Policy</p>
-                    <p>Privacy Policy</p>
-                    <p>Terms of Use</p>
-                    <p>FAQ</p>
+                <div className='flex items-start gap-12'>
+                    <div>
+                        <p className='bold'>Contact Us</p>
+                        <p className='flex items-center'><img className="mr-2 cursor-pointer" src="/images/footer/add.svg" alt="img" />350C MCDonal Akano, Omole Phase 1, <br />Ojodu Berger Lagos. Nigeria</p>
+                        <p className='flex items-center'><img className="mr-2 cursor-pointer" src="/images/footer/pho.svg" alt="img" />+234 802 3080 175, +234 809 8008 157.</p>
+                        <p className='flex items-center'><img className="mr-3 cursor-pointer" src="/images/footer/mail.svg" alt="img" />Hello@arcventives.com</p>
+                    </div>
+                    <div>
+                        <p className='bold'>Quick Links</p>
+                        <p>Home</p>
+                        <p>About Us</p>
+                        <p>Services</p>
+                        <p>Products</p>
+                        <p>Contact Us</p>
+                    </div>
                 </div>
-                <div className='third'>
-                    <h4>NEED HELP?</h4>
-                    <p>Support@Tippifynow.com</p>
+                <div className='hidden lg:block'>
+                    <p className='bold'>OUR SERVICES</p>
+                    <p>Architectural Design</p> 
+                    <p>Building Construction</p> 
+                    <p>ME  Installations</p> 
+                    <p>Renovation & Remodeling</p> 
+                    <p>Construction Consultancy</p> 
+                </div>
+                <div className='hidden lg:block'>
+                    <p className='bold invisible'> cc</p> 
+                    <p>Structural Engineering</p> 
+                    <p>Project Management & Supervision</p> 
+                    <p>Quantity Surveying & Cost Estimation</p> 
+                    <p>Interior Fit-Out & Finishing</p> 
+                    <p>Civil & Infrastructure Works</p>
+                </div>
 
-                    <h4 className='mt-10'>NEED HELP?</h4>
-                    <div className='soc-con flex items-center mb-4'> 
-                        <img  src="/images/components/insta.svg" alt="img" />
-                        <p className='ml-3'>Instagram</p>
-                    </div>
-                    <div className='soc-con flex items-center mb-4'> 
-                        <img  src="/images/components/x.svg" alt="img" />
-                        <p className='ml-3'>Twitter</p>
-                    </div>
-                    <div className='soc-con flex items-center mb-4'> 
-                        <img  src="/images/components/tele.svg" alt="img" />
-                        <p className='ml-3'>Telegram</p>
-                    </div>
-                </div>
-                <div className='third'>
-                    <h4>LOCATIONS</h4>
-                    <p>12, Bakare Crescent, Akiode <br/> Ojodu Berger. Lagos</p>
-                </div>
             </FirstRow>
             {/* <ThirdRow>
                 <p>Copyright © {currentYear} <span>TPL Trinitypact Limited</span></p>
             </ThirdRow> */}
-        </Con>
+        </Con >
     )
 }
 
 const Con = styled.section`  
-    width: 100%;      
-    padding: 80px 70px 40px 70px;
+    width: 100%;       
+    padding: 90px 0;
     background:#030304;;  
     display: flex;
     flex-direction:column;
@@ -71,115 +77,49 @@ const Con = styled.section`
         padding: 50px 10px;
     }
     p{ 
+        max-width: 363px;
         color: #FFF;
-        font-family: "Big Shoulders Display";
-        font-size: 20px;
+        font-family: Manrope;
+        font-size: 14px;
         font-style: normal;
-        font-weight: 600;
+        font-weight: 400;
         line-height: normal;
-        letter-spacing: 2.5px;
-        margin-bottom:20px;
-        white-space:nowrap;
-        @media (max-width: 1200px) { 
-            text-align: center;
-            font-size: 14px;
+        margin-bottom:10px; 
+        text-align: left;
+        @media (max-width: 1200px) {  
+            font-size: 12px;
+        }
+    }
+    .bold{
+        font-weight: 700;
+        margin-bottom: 20px;
+        white-space: nowrap;
+        text-transform: uppercase;
+    }
+    .logo{ 
+        cursor: pointer;
+        margin-bottom: 20px;
+        @media (max-width: 600px) { 
+            width: 131px; 
+        }
+        div{
+            margin-right: 5px;
+            padding: 0;
         }
     }
 `;
 
-const FirstRow = styled.div`  
-    width: 99%;    
-    display: flex; 
-    justify-content:space-between;  
+const FirstRow = styled.div`     
+    display: flex;  
+    align-items: flex-start;
+    gap: 50px;
     margin-bottom:30px;
-    @media (max-width: 1200px) { 
-        justify-content: center;
-        align-items:center;
+    @media (max-width: 1200px) {  
         flex-direction: column;
-    }
-    @media (min-width: 1400px) {  
-        width: 70%;
-    }
-    .first{     
-        margin-bottom:40px; 
-        @media (max-width: 1200px) { 
-            display: flex;
-            flex-direction:column;
-            align-items: center;
-            width: 100%;
-            img{
-                height: 40px;
-            }  
-        } 
-        h4{
-            color: #FFF;
-            font-family: "Big Shoulders Display";
-            font-size: 25px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            margin-bottom:20px;
-            @media (max-width: 1200px) { 
-                text-align: center;
-                font-size: 14px;
-            }
-        }
-        
-    }
-    .second{  
-        display:flex;
-        flex-direction:column; 
-        margin-bottom:40px;
-        @media (max-width: 1200px) { 
-            align-items: center;
-        }
-        h4{
-            color: #FFF;
-            font-family: "Big Shoulders Display";
-            font-size: 25px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            margin-bottom:20px;
-            @media (max-width: 1200px) { 
-                text-align: center;
-                font-size: 14px;
-            }
-        } 
-    }
-    .third{  
-        display:flex;
-        flex-direction:column; 
-        margin-bottom:40px;
-        @media (max-width: 1200px) { 
-            align-items: center;
-        }
-        h4{
-            color: #FFF;
-            font-family: "Big Shoulders Display";
-            font-size: 25px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            margin-bottom:20px;
-            @media (max-width: 1200px) { 
-                text-align: center;
-                font-size: 14px;
-            }
-        }
-        .soc-con{
-            p{
-                margin-bottom:0;
-            }
-        }
-        
-    }
+        align-items: flex-start;
+        gap: 20px;
+    } 
+     
     
 `;
 

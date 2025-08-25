@@ -25,6 +25,7 @@ const Clients = () => {
             "cliImg6.png",
             "cliImg7.png",
             "cliImg8.png",
+            "cliImg4.png",
           ].map((img, i) => (
             <div className="brand-box" key={i}>
               <img src={`/images/clients/${img}`} alt="brand" />
@@ -43,6 +44,7 @@ const Clients = () => {
             "cliImg8.png",
             "cliImg1.png",
             "cliImg8.png",
+            "cliImg8.png",
           ].map((img, i) => (
             <div className="brand-box no-top" key={i}>
               <img src={`/images/clients/${img}`} alt="brand" />
@@ -58,6 +60,7 @@ const Con = styled.section`
     width: 100%;
     background: #fff;
     padding: 90px 0;
+    padding-bottom: 30px;
     @media (max-width: 1200px) {   
         padding: 20px 0px;
     } 
@@ -73,20 +76,21 @@ const Con = styled.section`
         margin-top: 40px;
         .brand-box {
             display: flex;
-            width: 216px;
-            height: 200px;
-            padding: 25px 33px;
+            width: 180px;   /* was 216px */
+            height: 160px;  /* was 200px */
+            padding: 20px 25px; /* was 25px 33px */
             justify-content: center;
             align-items: center;
             border: 1px solid #c6c6c6;
             border-left: none;
 
             @media (max-width: 1200px) {
-                width: 98px;
-                height: 91px;
-                padding: 12px 15px;
+                width: 85px;   /* was 98px */
+                height: 80px;  /* was 91px */
+                padding: 10px 12px; /* was 12px 15px */
             }
         }
+
         .no-top{
             border-top: none;
         }

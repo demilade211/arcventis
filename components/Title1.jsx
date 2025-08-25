@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const Title1 = ({ heading, para, to, dark=false }) => {
+const Title1 = ({ heading, para, to, dark=false,noBar=false }) => {
   return (
-    <Con $dark={dark}>
-      <div className='green-bar'></div>
+    <Con $dark={dark} $noBar={noBar}>
+      {!noBar&&<div className='green-bar'></div>}
       <div className='r2 flex items-end justify-between lg:items-center'>
         <h1>{heading}</h1>
         {to && (
@@ -26,7 +26,7 @@ const Title1 = ({ heading, para, to, dark=false }) => {
 
 const Con = styled.header`
   width: 100%;
-  margin-bottom: 60px;
+  margin-bottom: ${({ $noBar }) => ($noBar ? '20px' : '60px')};
 
   .green-bar {
     width: 98px;

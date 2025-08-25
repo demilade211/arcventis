@@ -9,6 +9,7 @@ import Services from '@/components/subComponents/Services';
 import Culture from '@/components/subComponents/Culture';
 import Projects from '@/components/subComponents/Projects';
 import Clients from '@/components/subComponents/Clients';
+import ReadyToStart from '@/components/subComponents/ReadyToStart';
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
         <Culture />
         <Projects />
         <Clients />
+        <ReadyToStart/>
       </AppLayout>
     </Con>
 
