@@ -59,22 +59,45 @@ const Footer = () => {
                 </div>
 
             </FirstRow>
-            {/* <ThirdRow>
-                <p>Copyright © {currentYear} <span>TPL Trinitypact Limited</span></p>
-            </ThirdRow> */}
+            <ThirdRow>
+                <p>Copyright © {currentYear} <span>ARCVENTIVES LTD</span></p>
+            </ThirdRow>
+            <span className='credit'>Designed by <span>HayJay_Jr x Afo</span></span>
         </Con >
     )
 }
 
 const Con = styled.section`  
     width: 100%;       
-    padding: 90px 0;
+    padding: 50px 0;
     background:#030304;;  
     display: flex;
     flex-direction:column;
     align-items:center;
+    position: relative;
     @media (max-width: 600px) { 
         padding: 50px 10px;
+    }
+    .credit{
+        position: absolute;
+        bottom: 20px; 
+        color: #FFF;
+        font-family: Manrope;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        white-space: nowrap;
+        @media (max-width: 600px) {  
+        }
+        span{
+            color: #00AA59;
+            font-family: Manrope;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
     }
     p{ 
         max-width: 363px;
@@ -127,11 +150,13 @@ const ThirdRow = styled.div`
     width: 100%;     
     display:flex;
     justify-content:center;   
+    align-items:center;
+    background: #00AA59;
+    padding: 10px 0;
     p{
         text-align:center;
-        span{
-            color: #F58634;
-        }
+        color: #111; 
+        margin-bottom: 0;
     }
 `;
 
