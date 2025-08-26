@@ -63,7 +63,7 @@ const Footer = () => {
                 <p>Copyright © {currentYear} <span>ARCVENTIVES LTD</span></p>
             </ThirdRow>
             <span className='credit'>Designed by <span>HayJay_Jr x Afo</span></span>
-        </Con >
+        </Con>
     )
 }
 

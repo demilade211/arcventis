@@ -1,17 +1,14 @@
-'use client'
-
 import React from 'react'
 import styled from 'styled-components';
 
-const HeroSection = () => {
+const AboutHeroSec = () => {
   return (
     <Con>
       <Left>
-        <h1 className='mb-8'>Building Tomorrow's <br /> Legacy, Today!</h1>
+        <h1 className='mb-8'>Building More Than <br />Structures  We Build Legacies.</h1>
         <p className='sub'>
-          From architectural design to construction execution, Arcventives delivers spaces that stand the test
-          of time—trusted by clients across residential, commercial, and industrial sectors. Ready to start your
-          next construction project? We are available to provide a Free estimate within 24 hours
+          At Arcventives Ltd, construction goes beyond concrete. It's about shaping communities,
+          solving real-world challenges, and creating structures that stand the test of time.
         </p>
         <div className="xl:flex items-center gap-2.5 hidden ">
           <Btn>Request a Quote </Btn>
@@ -24,7 +21,7 @@ const HeroSection = () => {
       </Right>
       <div className="btns w-full lg:hidden mt-5 flex flex-col items-center">
         <GBtn>Request a Quote </GBtn>
-        <Btn>View our projects</Btn>
+        <Btn>View our services</Btn>
       </div>
 
     </Con>
@@ -35,6 +32,7 @@ const Con = styled.section`
   width: 100%;  
   display: flex;
   background: #111;
+  flex-direction: row-reverse;
   @media (max-width: 1200px) {  
     flex-direction: column;
     height: auto;
@@ -58,7 +56,7 @@ const Left = styled.div`
     h1{
         color: #FFF;
         font-family: var(--font-phosphate-inline);
-        font-size: 70px;
+        font-size: 58px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -150,4 +148,4 @@ const GBtn = styled(Btn)`
     margin-bottom: 10px;
 `;
 
-export default HeroSection
+export default AboutHeroSec

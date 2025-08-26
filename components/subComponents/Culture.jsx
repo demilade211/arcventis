@@ -65,7 +65,7 @@ const cultureContent = [
 ];
 
 
-const Culture = () => {
+const Culture = ({no}) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [prevIndex, setPrevIndex] = useState(0);
     const [isDropOpen, setIsDropOpen] = useState(false);
@@ -78,10 +78,10 @@ const Culture = () => {
 
     return (
         <Con>
-            <Title1
+            {!no&&<Title1
                 heading="Our Culture"
                 para="At Arcventives Ltd, our vision is to build structures that stand the test of time while fostering trust, innovation, and excellence in every project we undertake. Beyond concrete and steel, our culture is shaped by purpose, people, and passion for the built environment."
-            />
+            />}
             {/* Mobile dropdown */}
             <ItemCon>
                 <div className='mobile-green-con' onClick={() => setIsDropOpen(!isDropOpen)}>
