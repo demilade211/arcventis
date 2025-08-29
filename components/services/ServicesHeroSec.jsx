@@ -5,13 +5,13 @@ import { useRouter, usePathname } from 'next/navigation'
 const ServiceHeroSec = () => {
   const router = useRouter();
   const pathname = usePathname();
-
+  
   return (
     <Con>
       <Left>
         <h1 className='mb-8'>Built to Deliver. <br />Designed to Last.</h1>
         <p className='sub'>
-          We deliver end-to-end construction solutions — from design to execution — across residential, commercial, industrial, and public sectors. 
+          We deliver end-to-end construction solutions — from design to execution — across residential, commercial, industrial, and public sectors.
           Every service is handled with precision, professionalism, and a focus on lasting value.
         </p>
         <div className="xl:flex items-center gap-2.5 hidden ">

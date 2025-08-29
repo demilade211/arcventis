@@ -5,7 +5,7 @@ const WhoAreWe = () => {
   return (
     <Con>
         <div className='left'> 
-            <img className="mt-5" src="/images/about/abimg1.png" alt="img" />
+            <img className="mt-5" src="/images/about/abImg1.png" alt="img" />
         </div>
         <div className='right'>
             <h1>Who Are We</h1>

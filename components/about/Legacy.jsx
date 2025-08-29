@@ -5,7 +5,7 @@ const Legacy = () => {
     return (
         <Con>
             <div className='left'>
-                <img className="mt-5" src="/images/about/abimg2.png" alt="img" />
+                <img className="mt-5" src="/images/about/abImg2.png" alt="img" />
             </div>
             <div className='right'>
                 <h1>A Legacy of Trust and Impact</h1>
