@@ -2,8 +2,13 @@
 
 import React from 'react'
 import styled from 'styled-components';
+import Router from "next/router"
+import { useRouter, usePathname } from 'next/navigation'
 
 const HeroSection = () => {
+  const router = useRouter();
+  const pathname = usePathname();
+
   return (
     <Con>
       <Left>
@@ -15,7 +20,7 @@ const HeroSection = () => {
         </p>
         <div className="xl:flex items-center gap-2.5 hidden ">
           <Btn>Request a Quote </Btn>
-          <Btn>View our projects</Btn>
+          <Btn onClick={() => router.push(`/all-products`)}>View our projects</Btn>
         </div>
       </Left>
       <Right>
@@ -24,7 +29,7 @@ const HeroSection = () => {
       </Right>
       <div className="btns w-full lg:hidden mt-5 flex flex-col items-center">
         <GBtn>Request a Quote </GBtn>
-        <Btn>View our projects</Btn>
+        <Btn onClick={() => router.push(`/all-projects`)}>View our projects</Btn>
       </div>
 
     </Con>

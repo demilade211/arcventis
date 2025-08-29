@@ -6,7 +6,7 @@ const Projects = () => {
     return (
         <Con>
             <Title1
-                to="/projects"
+                to="/all-projects"
                 heading="Our Projects"
                 para="Explore what we've been building across sectors. From elegant residential homes to large-scale commercial and infrastructure projects, here's a glimpse into the craftsmanship and innovation behind our recent work."
                 dark

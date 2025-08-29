@@ -10,3 +10,7 @@ body {
   font-family: "Manrope", sans-serif;
   background: #0B0606;
 }
+
+.reverse{
+  flex-direction: row-reverse;
+}

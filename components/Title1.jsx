@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link';
 import styled from 'styled-components';
 
 const Title1 = ({ heading, para, to, dark=false,noBar=false }) => {
@@ -8,7 +9,7 @@ const Title1 = ({ heading, para, to, dark=false,noBar=false }) => {
       <div className='r2 flex items-end justify-between lg:items-center'>
         <h1>{heading}</h1>
         {to && (
-          <span>
+          <Link href={to} className='see-all'>
             See All {dark ?
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
                 <path d="M4.5 12.5H19.5M19.5 12.5L13.875 6.5M19.5 12.5L13.875 18.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -16,7 +17,7 @@ const Title1 = ({ heading, para, to, dark=false,noBar=false }) => {
               :
               <img alt="img" src='/images/seeall.svg' />
             }
-          </span>
+          </Link>
         )}
       </div>
       <p>{para}</p>
@@ -57,7 +58,7 @@ const Con = styled.header`
     }
   }
 
-  span {
+  .see-all {
     white-space: nowrap;
     color: ${({ $dark }) => ($dark ? '#FFF' : '#525252')}; /* ✅ white if dark */
     font-family: Manrope;

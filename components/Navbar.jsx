@@ -24,7 +24,7 @@ const Navbar = () => {
                         <li onClick={() => router.push(`/`)}>{isActive("/") && <div className="line"></div>}Home</li>
                         <li onClick={() => router.push(`/about`)}>{isActive("/about") && <div className="line"></div>}About us</li>
                         <li onClick={() => router.push(`/services`)}>{isActive("/services") && <div className="line"></div>}Services</li>
-                        <li onClick={() => router.push(`/products`)}>{isActive("/products") && <div className="line"></div>}Products</li>
+                        <li onClick={() => router.push(`/all-projects`)}>{isActive("/all-projects") && <div className="line"></div>}Projects</li>
                         <li onClick={() => router.push(`/contact`)}>{isActive("/contact") && <div className="line"></div>}Contact Us</li>
                         <li className="last" onClick={() => router.push(`/`)}>Request a Quote </li>
                     </ul>
