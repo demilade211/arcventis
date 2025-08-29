@@ -2,47 +2,65 @@ import React from 'react'
 import styled from 'styled-components';
 import { useRouter, usePathname } from 'next/navigation'
 
-const AboutHeroSec = () => {
+const ServiceHeroSec = () => {
   const router = useRouter();
   const pathname = usePathname();
 
   return (
     <Con>
       <Left>
-        <h1 className='mb-8'>Building More Than <br />Structures  We Build Legacies.</h1>
+        <h1 className='mb-8'>Built to Deliver. <br />Designed to Last.</h1>
         <p className='sub'>
-          At Arcventives Ltd, construction goes beyond concrete. It's about shaping communities,
-          solving real-world challenges, and creating structures that stand the test of time.
+          We deliver end-to-end construction solutions — from design to execution — across residential, commercial, industrial, and public sectors. 
+          Every service is handled with precision, professionalism, and a focus on lasting value.
         </p>
         <div className="xl:flex items-center gap-2.5 hidden ">
           <Btn>Request a Quote </Btn>
           <Btn onClick={() => router.push(`/all-projects`)}>View our projects</Btn>
         </div>
+
+        <div className="btns w-full lg:hidden mt-5 flex flex-col items-center">
+          <GBtn>Request a Quote </GBtn>
+        </div>
       </Left>
       <Right>
         <div className='rec'></div>
-        <img className="mt-5" src="/images/himg1.png" alt="img" />
+        <img className="mt-5" src="/images/simg.png" alt="img" />
       </Right>
-      <div className="btns w-full lg:hidden mt-5 flex flex-col items-center">
-        <GBtn>Request a Quote </GBtn>
-        <Btn>View our services</Btn>
-      </div>
 
+      <div className='abs-rec'></div>
     </Con>
   )
 }
 
 const Con = styled.section`  
-  width: 100%;  
+  width: 100%;
+  height: 100%;  
   display: flex;
   background: #111;
-  flex-direction: row-reverse;
+  position: relative;
+  /* margin-bottom: 50px; */
   @media (max-width: 1200px) {  
     flex-direction: column;
     height: auto;
   }
   .btns{
     padding: 0 30px;
+  }
+  .abs-rec{
+    width: 50%;
+    height: 60px;
+    background: #111;
+    position: absolute;
+    bottom: -60px;
+    left: 15%;
+    z-index: 1;
+    @media (max-width: 1200px) { 
+      width:30%;
+      height: 45px; 
+      bottom: 0;
+      left: 0;
+    }
   }
 `;
 
@@ -95,6 +113,7 @@ const Right = styled.div`
   background-repeat: no-repeat;
   background-size: cover;  
   padding: 100px 50px;
+  position: relative;
   @media (max-width: 1200px) { 
     width:100%; 
     padding: 30px;  
@@ -103,15 +122,29 @@ const Right = styled.div`
     background: url('/images/pages/home/mbg.svg');  
   }
   .rec{
-    width: 97%;
-    height: 93px;
+    width: 100%;
+    height: 100px;
     background: #00AA59;
+    position: absolute;
+    top: 350px;
+    left: -50px;
+    z-index: 10;
+    @media (max-width: 1200px) { 
+      width:50%; 
+      height: 50px;  
+      top: 95%;
+      left: 50%;
+    }
   }
   img{
-    width: 97%;
+    width: 100%;
     height: auto;
     margin-top: -78px; 
     margin-left: 15px;
+    @media (max-width: 1200px) { 
+      margin-top: 0;
+      margin-left: 0; 
+    }
   }
 `;
 
@@ -152,4 +185,4 @@ const GBtn = styled(Btn)`
     margin-bottom: 10px;
 `;
 
-export default AboutHeroSec
+export default ServiceHeroSec

@@ -1,0 +1,33 @@
+'use client'
+
+// import AboutArc from '@/components/about/AboutArc';
+import ProjectsHeroSec from '@/components/projects/ProjectsHeroSec';
+import ProjectsLists from '@/components/projects/ProjectsLists';
+import Services from '@/components/subComponents/Services';
+import ReadyToStart from '@/components/subComponents/ReadyToStart';
+import AppLayout from '@/layouts/AppLayout';
+import React, {useState} from 'react'
+import styled from 'styled-components';
+
+const Products = () => {
+    return (
+        <Con>
+            <AppLayout>
+                <ProjectsHeroSec />
+                <ProjectsLists />
+                <Services />
+                <ReadyToStart />
+            </AppLayout>
+        </Con>
+    )
+}
+
+const Con = styled.div`  
+  width: 100%;
+  max-width: 1600px; 
+  margin: 0 auto; /* Centers the content */
+  overflow: hidden;
+  
+`;
+
+export default Products;
