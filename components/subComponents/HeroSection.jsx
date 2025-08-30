@@ -39,37 +39,44 @@ const HeroSection = () => {
 const Con = styled.section`  
   width: 100%;  
   display: flex;
-  background: #111;
+  background: url('/images/hbag.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
   @media (max-width: 1200px) {  
     flex-direction: column;
     height: auto;
+    background: none;
   }
+
   .btns{
     padding: 0 30px;
   }
 `;
 
+
 const Left = styled.div`   
     width: 60%;   
-    padding-left :80px;  
-    padding-top:80px;
+    padding-left :120px;  
+    padding-top:0px;
     display: flex;
     flex-direction: column;
     justify-content: center; 
     @media (max-width: 1200px) { 
         width: 100%;
         padding: 30px;
+        padding-bottom: 0;
     } 
     h1{
         color: #FFF;
         font-family: var(--font-phosphate-inline);
-        font-size: 70px;
+        font-size: 65px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
         text-transform: uppercase;
         @media (max-width: 1200px) { 
-            font-size: 30px;
+            font-size: 28px;
         }
     }
     .sub{
@@ -98,6 +105,7 @@ const Right = styled.div`
   background-repeat: no-repeat;
   background-size: cover;  
   padding: 100px 50px;
+  padding-top: 30px;
   @media (max-width: 1200px) { 
     width:100%; 
     padding: 30px;  
@@ -106,15 +114,21 @@ const Right = styled.div`
     background: url('/images/pages/home/mbg.svg');  
   }
   .rec{
-    width: 97%;
+    width: 86%;
     height: 93px;
     background: #00AA59;
+    @media (max-width: 1200px) {  
+        width: 97%; 
+    }
   }
   img{
-    width: 97%;
+    width: 86%;
     height: auto;
     margin-top: -78px; 
     margin-left: 15px;
+    @media (max-width: 1200px) {  
+        width: 97%; 
+    }
   }
 `;
 

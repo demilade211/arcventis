@@ -33,19 +33,18 @@ const Navbar = () => {
                     <img src="/images/ham.svg" alt="img" onClick={() => setShowNav(!showNav)} />
                 </div>
                 <div className={`mobile-nav ${showNav && "active"}`}>
-                    <div className="close" onClick={() => setShowNav(false)} >
-                        <img src="/images/ham.svg" alt="img" onClick={() => setShowNav(!showNav)} />
+                    <div className="close" onClick={() => setShowNav(false)} > 
+                        <svg onClick={() => setShowNav(!showNav)} xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                            <path d="M9.49998 9.5L15.0416 15.0417M9.49998 9.5L3.95831 3.95833M9.49998 9.5L3.95831 15.0417M9.49998 9.5L15.0416 3.95833" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
                     </div>
                     <ul>
                         <li onClick={() => router.push(`/`)}>Home</li>
-                        <li onClick={() => router.push(`/products`)}>Products</li>
                         <li onClick={() => router.push(`/about`)}>About us</li>
-                        <li onClick={() => router.push(`/faq`)}>FAQ</li>
-                        {/* <li className="flex items-center">
-                            <img className="mr-5 cursor-pointer" src="/images/components/insta.svg" alt="img" />
-                            <img className="mr-5 cursor-pointer" src="/images/components/twit.svg" alt="img" />
-                            <img className="mr-5 cursor-pointer" src="/images/components/fb.svg" alt="img" />
-                        </li> */}
+                        <li onClick={() => router.push(`/services`)}>Services</li>
+                        <li onClick={() => router.push(`/products`)}>Projects</li> 
+                        <li onClick={() => router.push(`/contact`)}>Contact Us</li>
+                        <li onClick={() => router.push(`/`)}>Request a Quote</li>
                     </ul>
                 </div>
             </Bottom>
@@ -131,39 +130,41 @@ const Bottom = styled.div`
         }
     }
     .mobile-nav{ 
-        position: absolute;
-        width: 100%;
-        top: -100%; /* Start above the viewport */
-        left: 0;
-        display: block; /* Change to 'none' when you want to hide it */ 
+        position: fixed; /* use fixed to cover viewport regardless of parent */
+        top: 0;
+        right: 0;
+        width: 70%;
+        height: 100vh;
+        display: block;
         border: 0.5px solid rgba(255, 255, 255, 0.04);
-        background:#030304;
-        padding: 20px 50px;
-        opacity: 0; /* Start fully transparent */
-        transition: 900ms ease-in;
-        transform: translateY(0); /* Start at the original position */ 
-        z-index:5;
+        background: #FFF; 
+        opacity: 0; 
+        transition: 400ms ease-in-out;
+        transform: translateX(100%); /* start hidden off-screen */
+        z-index: 9999;
+
         &.active {
-            /* Add a class 'active' when you want to show the navigation */
-            top: 0; /* Move it to the original position */
-            opacity: 1; /* Make it fully visible */
-            transform: translateY(0); /* Ensure it's at the original position */
+            transform: translateX(0); /* slide in */
+            opacity: 1;
         }
+
         .close{
             display:flex;
             justify-content:flex-end;
-            align-items:center;
-            margin-bottom:40px;
+            align-items:center; 
+            background: #00AA59;
+            padding: 17px 28px 18px 28px;
         }
         ul{
             li{
+                padding: 21px 20px 20px 21px;
+                border-bottom: 1px solid #F2F2F2;
                 text-align:left;
-                list-style-type:none;
-                margin-bottom:30px;
-                color: #FFF;
-                font-size: 20px;
+                list-style-type:none; 
+                color: #696969;
+                font-size: 14px;
                 font-style: normal;
-                font-weight: 700;
+                font-weight: 400;
                 line-height: normal;
             }
             .contact{

@@ -4,16 +4,16 @@ import styled from 'styled-components';
 const WhoAreWe = () => {
   return (
     <Con>
-        <div className='left'> 
-            <img className="mt-5" src="/images/about/abImg1.png" alt="img" />
-        </div>
-        <div className='right'>
-            <h1>Who Are We</h1>
-            <p>We are a collective of engineers, architects, project managers, and visionaries working together to raise the bar in the construction industry. At Arcventives, we approach each project with precision, professionalism, and a deep understanding of our client's goals.</p>
-            <p>Our vision is to be a leading force in sustainable and innovative construction—delivering solutions that improve lives, transform spaces, and build resilient communities.</p>
-            <p>To achieve this, our mission is simple: deliver high-quality construction services through expert collaboration, cutting-edge practices, and a commitment to long-term value.</p>
-            <p>Every day, we build not just with materials, but with purpose — putting people, process, and performance at the center of our operations.</p>
-        </div>
+      <div className='left'>
+        <img className="mt-5" src="/images/about/abImg1.png" alt="img" />
+      </div>
+      <div className='right'>
+        <h1>Who Are We</h1>
+        <p>We are a collective of engineers, architects, project managers, and visionaries working together to raise the bar in the construction industry. At Arcventives, we approach each project with precision, professionalism, and a deep understanding of our client's goals.</p>
+        <p>Our vision is to be a leading force in sustainable and innovative construction—delivering solutions that improve lives, transform spaces, and build resilient communities.</p>
+        <p>To achieve this, our mission is simple: deliver high-quality construction services through expert collaboration, cutting-edge practices, and a commitment to long-term value.</p>
+        <p>Every day, we build not just with materials, but with purpose — putting people, process, and performance at the center of our operations. </p>
+      </div>
     </Con>
   )
 }
