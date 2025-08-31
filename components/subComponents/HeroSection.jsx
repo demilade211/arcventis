@@ -1,13 +1,23 @@
 'use client'
 
-import React from 'react'
-import styled from 'styled-components';
-import Router from "next/router"
+import React, { useState, useEffect } from 'react'
+import styled, { keyframes } from 'styled-components';
 import { useRouter, usePathname } from 'next/navigation'
 
 const HeroSection = () => {
   const router = useRouter();
   const pathname = usePathname();
+
+  const images = ["/images/himg1.png", "/images/himg2.png", "/images/himg3.png", "/images/himg4.png"];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <Con>
@@ -25,19 +35,34 @@ const HeroSection = () => {
       </Left>
       <Right>
         <div className='rec'></div>
-        <img className="mt-5" src="/images/himg1.png" alt="img" />
+        {/* key ensures re-mount on index change → animation restarts */}
+        <SlideImg
+          key={currentIndex}
+          src={images[currentIndex]}
+          alt="hero"
+        />
       </Right>
       <div className="btns w-full lg:hidden mt-5 flex flex-col items-center">
         <GBtn>Request a Quote </GBtn>
         <Btn onClick={() => router.push(`/all-projects`)}>View our projects</Btn>
       </div>
-
     </Con>
   )
 }
 
+const slideIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
 const Con = styled.section`  
-  width: 100%;  
+  width: 100%;   
   display: flex;
   background: url('/images/hbag.png');
   background-position: center;
@@ -48,60 +73,52 @@ const Con = styled.section`
     height: auto;
     background: none;
   }
-
   .btns{
     padding: 0 30px;
   }
 `;
 
-
 const Left = styled.div`   
-    width: 60%;   
-    padding-left :120px;  
-    padding-top:0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    @media (max-width: 1200px) { 
-        width: 100%;
-        padding: 30px;
-        padding-bottom: 0;
-    } 
-    h1{
-        color: #FFF;
-        font-family: var(--font-phosphate-inline);
-        font-size: 65px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        text-transform: uppercase;
-        @media (max-width: 1200px) { 
-            font-size: 28px;
-        }
-    }
-    .sub{
-        width: 90%;
-        color: #FFF;
-        font-family: Manrope;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        margin-bottom: 20px;
-        @media (max-width: 1200px) { 
-            width: 100%;
-            font-size: 12px;
-        }
-    } 
+  width: 60%;   
+  padding-left: 120px;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  @media (max-width: 1200px) { 
+      width: 100%;
+      padding: 30px;
+      padding-bottom: 0;
+  } 
+  h1{
+      color: #FFF;
+      font-family: var(--font-phosphate-inline);
+      font-size: 65px;
+      font-weight: 400;
+      text-transform: uppercase;
+      @media (max-width: 1200px) { 
+          font-size: 28px;
+      }
+  }
+  .sub{
+      width: 90%;
+      color: #FFF;
+      font-family: Manrope;
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 20px;
+      @media (max-width: 1200px) { 
+          width: 100%;
+          font-size: 12px;
+      }
+  } 
 `;
 
 const Right = styled.div`  
   width: 40%; 
-  height: 100%; 
   display:flex; 
   flex-direction: column;
   background: url('/images/pages/home/bg.svg');
-  background-position: center center; 
+  background-position: center; 
   background-repeat: no-repeat;
   background-size: cover;  
   padding: 100px 50px;
@@ -121,52 +138,45 @@ const Right = styled.div`
         width: 97%; 
     }
   }
-  img{
-    width: 86%;
+`;
+
+const SlideImg = styled.img`
+  width: 86%;
+  height: 500px; 
+  margin-top: -78px; 
+  margin-left: 15px;
+  animation: ${slideIn} 0.5s ease forwards;
+  @media (max-width: 1200px) {  
+    width: 97%; 
     height: auto;
-    margin-top: -78px; 
-    margin-left: 15px;
-    @media (max-width: 1200px) {  
-        width: 97%; 
-    }
   }
 `;
 
 const Btn = styled.button`
-    width: 160px;
-    height: 60px;
-    padding: 20px;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    padding: 12px 24px;  
-    border-radius: 10px;
-    border: 1px solid #FFF;
-    line-height: normal; 
-    color: #FFF;
-    font-family: Manrope;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    white-space: nowrap;
-    cursor:pointer;
-    outline:none;
+  width: 160px;
+  height: 60px;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  border-radius: 10px;
+  border: 1px solid #FFF;
+  color: #FFF;
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 400;
+  cursor:pointer;
   @media (max-width: 1200px) { 
       width: 100%; 
       border-radius: 5px;
       height: 50px;
   } 
-  @media (min-width: 2000px) { 
-    padding: 15px 24px;
-  }
 `;
 
 const GBtn = styled(Btn)`  
-    width: 100%;
-    background: #00AA59;
-    border: none;
-    margin-bottom: 10px;
+  width: 100%;
+  background: #00AA59;
+  border: none;
+  margin-bottom: 10px;
 `;
 
 export default HeroSection

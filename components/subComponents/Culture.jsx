@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import Title1 from '../Title1';
 
@@ -64,34 +64,54 @@ const cultureContent = [
     }
 ];
 
-
-const Culture = ({no}) => {
+const Culture = ({ no }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [prevIndex, setPrevIndex] = useState(0);
     const [isDropOpen, setIsDropOpen] = useState(false);
 
+    // Manual click handler
     const handleClick = (idx) => {
         setPrevIndex(activeIndex);
         setActiveIndex(idx);
-        setIsDropOpen(false); // close dropdown on select
+        setIsDropOpen(false);
     };
+
+    // Auto change every 3 sec
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setPrevIndex(activeIndex);
+            setActiveIndex((prev) => (prev + 1) % cultureContent.length);
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, [activeIndex]);
 
     return (
         <Con>
-            {!no&&<Title1
-                heading="Our Culture"
-                para="At Arcventives Ltd, our vision is to build structures that stand the test of time while fostering trust, innovation, and excellence in every project we undertake. Beyond concrete and steel, our culture is shaped by purpose, people, and passion for the built environment."
-            />}
+            {!no && (
+                <Title1
+                    heading="Our Culture"
+                    para="At Arcventives Ltd, our vision is to build structures that stand the test of time while fostering trust, innovation, and excellence in every project we undertake. Beyond concrete and steel, our culture is shaped by purpose, people, and passion for the built environment."
+                />
+            )}
             {/* Mobile dropdown */}
             <ItemCon>
-                <div className='mobile-green-con' onClick={() => setIsDropOpen(!isDropOpen)}>
+                <div
+                    className="mobile-green-con"
+                    onClick={() => setIsDropOpen(!isDropOpen)}
+                >
                     <p>{cultureItems[activeIndex]}</p>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M5.83327 7.5001C5.66847 7.50013 5.50739 7.54903 5.37038 7.6406C5.23338 7.73217 5.12659 7.8623 5.06353 8.01455C5.00048 8.1668 4.98397 8.33433 5.01611 8.49596C5.04825 8.65758 5.12759 8.80605 5.2441 8.9226L9.41077 13.0893C9.56704 13.2455 9.77896 13.3333 9.99993 13.3333C10.2209 13.3333 10.4328 13.2455 10.5891 13.0893L14.7558 8.9226C14.8723 8.80605 14.9516 8.65758 14.9838 8.49596C15.0159 8.33433 14.9994 8.1668 14.9363 8.01455C14.8733 7.8623 14.7665 7.73217 14.6295 7.6406C14.4925 7.54903 14.3314 7.50013 14.1666 7.5001L5.83327 7.5001Z" fill="white" />
+                        <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M5.83327 7.5001C5.66847 7.50013 5.50739 7.54903 5.37038 7.6406C5.23338 7.73217 5.12659 7.8623 5.06353 8.01455C5.00048 8.1668 4.98397 8.33433 5.01611 8.49596C5.04825 8.65758 5.12759 8.80605 5.2441 8.9226L9.41077 13.0893C9.56704 13.2455 9.77896 13.3333 9.99993 13.3333C10.2209 13.3333 10.4328 13.2455 10.5891 13.0893L14.7558 8.9226C14.8723 8.80605 14.9516 8.65758 14.9838 8.49596C15.0159 8.33433 14.9994 8.1668 14.9363 8.01455C14.8733 7.8623 14.7665 7.73217 14.6295 7.6406C14.4925 7.54903 14.3314 7.50013 14.1666 7.5001L5.83327 7.5001Z"
+                            fill="white"
+                        />
                     </svg>
                 </div>
                 {isDropOpen && (
-                    <div className='drop-con'>
+                    <div className="drop-con">
                         {cultureItems.map((item, idx) => (
                             <div
                                 key={idx}
@@ -106,24 +126,26 @@ const Culture = ({no}) => {
             </ItemCon>
 
             {/* Desktop + Shared Content */}
-            <div className='row2'>
+            <div className="row2">
                 <Left>
-                    <div className='green-con'>
+                    <div className="green-con">
                         {cultureItems.map((item, idx) => (
                             <div
-                                className='item'
+                                className="item"
                                 key={item}
                                 onClick={() => handleClick(idx)}
                             >
                                 <div
-                                    className='line'
+                                    className="line"
                                     style={{ opacity: activeIndex === idx ? 1 : 0 }}
                                 ></div>
-                                <p className={activeIndex === idx ? 'active' : ''}>{item}</p>
+                                <p className={activeIndex === idx ? "active" : ""}>
+                                    {item}
+                                </p>
                             </div>
                         ))}
                     </div>
-                    <div className='info-con'>
+                    <div className="info-con">
                         <h1>{cultureContent[activeIndex].title}</h1>
                         <h2>{cultureContent[activeIndex].subtitle}</h2>
                         <p>{cultureContent[activeIndex].text}</p>
@@ -138,15 +160,17 @@ const Culture = ({no}) => {
                 <Right>
                     <div
                         key={activeIndex}
-                        className={`image-wrapper ${activeIndex > prevIndex ? "slide-left" : "slide-right"}`}
+                        className={`image-wrapper ${
+                            activeIndex > prevIndex ? "slide-left" : "slide-right"
+                        }`}
                     >
                         <img src={cultureContent[activeIndex].img} alt="culture" />
                     </div>
                 </Right>
             </div>
         </Con>
-    )
-}
+    );
+}; 
 
 
 const Con = styled.section`  

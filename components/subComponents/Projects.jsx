@@ -1,8 +1,74 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
 import Title1 from '../Title1';
 
+const projectData = [
+    {
+        title: "Residential",
+        desc: "Elegant homes designed for comfort, beauty, and long-term value.",
+        images: [
+            "/images/projects/proImg1.png",
+            "/images/projects/proImg2.png",
+            "/images/projects/proImg3.png"
+        ]
+    },
+    {
+        title: "Commercial",
+        desc: "Functional and innovative spaces for businesses to thrive.",
+        images: [
+            "/images/projects/proImg2.png",
+            "/images/projects/proImg3.png",
+            "/images/projects/proImg1.png"
+        ]
+    },
+    {
+        title: "Infrastructure",
+        desc: "Building the backbone of communities with reliable infrastructure.",
+        images: [
+            "/images/projects/proImg3.png",
+            "/images/projects/proImg1.png",
+            "/images/projects/proImg2.png"
+        ]
+    }
+];
+
 const Projects = () => {
+    const colsRef = useRef([]);
+    const [activeIndexes, setActiveIndexes] = useState(Array(projectData.length).fill(0));
+
+    // Scroll reveal
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("in-view");
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        colsRef.current.forEach((col) => {
+            if (col) observer.observe(col);
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
+    // Auto-change images every 3 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveIndexes((prev) =>
+                prev.map((idx, projectIdx) =>
+                    (idx + 1) % projectData[projectIdx].images.length
+                )
+            );
+        }, 3000); // ✅ 3 seconds
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <Con>
             <Title1
@@ -12,30 +78,28 @@ const Projects = () => {
                 dark
             />
             <div className='row2'>
-                <div className='col'>
-                    <img src="/images/projects/proImg1.png" alt="img" />
-                    <div className='green-con'>
-                        <h1>Residential</h1>
-                        <p>Elegant homes designed for comfort, beauty, and long-term value.</p>
-                        <div className='view'>View All</div>
+                {projectData.map((project, i) => (
+                    <div
+                        className='col fade-up'
+                        key={i}
+                        ref={(el) => (colsRef.current[i] = el)}
+                        style={{ transitionDelay: `${i * 0.2}s` }}
+                    >
+                        <div className="image-wrapper">
+                            <img
+                                key={activeIndexes[i]} // triggers fade animation
+                                src={project.images[activeIndexes[i]]}
+                                alt={project.title}
+                                className="fade-img"
+                            />
+                        </div>
+                        <div className='green-con'>
+                            <h1>{project.title}</h1>
+                            <p>{project.desc}</p>
+                            <div className='view'>View All</div>
+                        </div>
                     </div>
-                </div>
-                <div className='col'>
-                    <img src="/images/projects/proImg2.png" alt="img" />
-                    <div className='green-con'>
-                        <h1>Residential</h1>
-                        <p>Elegant homes designed for comfort, beauty, and long-term value.</p>
-                        <div className='view'>View All</div>
-                    </div>
-                </div>
-                <div className='col'>
-                    <img src="/images/projects/proImg3.png" alt="img" />
-                    <div className='green-con'>
-                        <h1>Residential</h1>
-                        <p>Elegant homes designed for comfort, beauty, and long-term value.</p>
-                        <div className='view'>View All</div>
-                    </div>
-                </div>
+                ))}
             </div>
         </Con>
     )
@@ -46,29 +110,59 @@ const Con = styled.section`
     padding: 90px;
     background: #111;
     @media (max-width: 1200px) {  
-        flex-direction: column-reverse;
-        padding: 20px 20px;
+        padding: 20px;
     } 
+
     .row2{
         width: 100%;
         display: grid;
         grid-template-columns: repeat(3,1fr);
         column-gap: 20px;
         row-gap: 80px;
+
         @media (max-width: 1200px) {
             grid-template-columns: repeat(2,1fr); 
             column-gap: 10px;
             row-gap: 10px;
         } 
+
         .col{
-            border-radius: 10px;
-            background: #FFF;
+            border-radius: 10px; 
             position: relative;
             overflow: hidden;
+            transform: translateY(40px);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 
-            img{
+            &.in-view {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .image-wrapper {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                border-radius: 10px;
+            }
+
+            .fade-img {
                 width: 100%;
                 border-radius: 10px; 
+                transform: scale(1);
+                transition: transform 1.5s ease, opacity 0.6s ease;
+                opacity: 0;
+                animation: fadeIn 1s forwards;
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+
+            &:hover .fade-img {
+                transform: scale(1.08);
             }
 
             .green-con{
@@ -80,19 +174,15 @@ const Con = styled.section`
                 border-bottom-left-radius: 10px;
                 border-bottom-right-radius:10px;
                 padding: 30px 40px;
-                transition: all 0.3s ease;
-
-                /* Desktop default: hidden */
+                transition: all 0.4s ease;
+                transform: translateY(100%);
                 opacity: 0;
-                visibility: hidden;
 
                 @media (max-width: 1200px) {
-                    /* Mobile/tablet: always visible */
+                    transform: translateY(0);
                     opacity: 1;
-                    visibility: visible; 
                     border-radius: 0 0 10px 10px;
-                    padding: 10px 10px;
-                    
+                    padding: 10px;
                 }
 
                 h1{
@@ -131,10 +221,9 @@ const Con = styled.section`
                 }
             }
 
-            /* Hover show effect on desktop */
             &:hover .green-con {
+                transform: translateY(0);
                 opacity: 1;
-                visibility: visible;
             }
         }
     }

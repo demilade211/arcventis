@@ -7,7 +7,7 @@ const Title = ({heading,para}) => {
         <div className='green-bar'></div>
         <div>
             <h1>{heading}</h1>
-            <span>See All</span>
+            {/* <span>See All</span> */}
         </div>
         <p>{para}</p>
     </Con>

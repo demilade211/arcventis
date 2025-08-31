@@ -35,7 +35,7 @@ const Navbar = () => {
                 <div className={`mobile-nav ${showNav && "active"}`}>
                     <div className="close" onClick={() => setShowNav(false)} > 
                         <svg onClick={() => setShowNav(!showNav)} xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
-                            <path d="M9.49998 9.5L15.0416 15.0417M9.49998 9.5L3.95831 3.95833M9.49998 9.5L3.95831 15.0417M9.49998 9.5L15.0416 3.95833" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M9.49998 9.5L15.0416 15.0417M9.49998 9.5L3.95831 3.95833M9.49998 9.5L3.95831 15.0417M9.49998 9.5L15.0416 3.95833" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </div>
                     <ul>
