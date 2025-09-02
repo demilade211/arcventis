@@ -170,11 +170,13 @@ const Right = styled.div`
 
 const SlideImg = styled.img`
   width: 86%; 
+  min-height: 500px;
   margin-top: -78px; 
   margin-left: 15px;
   animation: ${slideIn} 0.5s ease forwards;
   @media (max-width: 1200px) {  
     width: 97%; 
+    min-height: 200px;
     height: auto;
   }
 `;

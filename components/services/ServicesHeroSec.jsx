@@ -19,7 +19,7 @@ const ServiceHeroSec = () => {
           <Btn onClick={() => router.push(`/all-projects`)}>View our projects</Btn>
         </div>
 
-        <div className="btns w-full lg:hidden mt-5 flex flex-col items-center">
+        <div className="btns w-full lg:hidden mt-5 flex ">
           <GBtn>Request a Quote </GBtn>
         </div>
       </Left>
@@ -43,31 +43,29 @@ const Con = styled.section`
   @media (max-width: 1200px) {  
     flex-direction: column;
     height: auto;
-  }
-  .btns{
-    padding: 0 30px;
-  }
+  } 
   .abs-rec{
     width: 50%;
-    height: 60px;
+    height: 100px;
     background: #111;
     position: absolute;
     bottom: -60px;
-    left: 15%;
-    z-index: 1;
+    left: 100px;
+    z-index: 1; 
     @media (max-width: 1200px) { 
-      width:30%;
+      width:50%;
       height: 45px; 
-      bottom: 0;
+      bottom: -30px;
       left: 0;
     }
   }
 `;
 
 const Left = styled.div`   
-    width: 60%;   
+    width: 50%;   
     padding-left :80px;  
     padding-top:80px;
+    padding-bottom: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center; 
@@ -104,7 +102,7 @@ const Left = styled.div`
 `;
 
 const Right = styled.div`  
-  width: 40%; 
+  width: 50%; 
   height: 100%; 
   display:flex; 
   flex-direction: column;
@@ -125,8 +123,8 @@ const Right = styled.div`
     width: 100%;
     height: 100px;
     background: #00AA59;
-    position: absolute;
-    top: 350px;
+    position: absolute; 
+    bottom: -20px;
     left: -50px;
     z-index: 10;
     @media (max-width: 1200px) { 

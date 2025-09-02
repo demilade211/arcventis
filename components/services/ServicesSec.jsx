@@ -99,8 +99,9 @@ const ServicesCon = styled.div`
             align-items: center;
             white-space: nowrap; 
             @media (max-width: 1200px) {
+                width: 104px;
                 display: inline-flex;
-                padding: 7px 45px;
+                padding: 7px 23px 7px 21px; 
                 justify-content: center;
                 align-items: center;  
                 border-radius: 5px;
@@ -162,8 +163,7 @@ const ServicesCon = styled.div`
             margin-bottom: 40px;
             @media (max-width: 1200px) {  
                 margin-bottom: 10px;
-                font-size: 12px;
-                max-width: 250px;
+                font-size: 12px; 
             }
         }
     }
