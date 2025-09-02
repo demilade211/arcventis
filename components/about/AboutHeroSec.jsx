@@ -9,7 +9,7 @@ const AboutHeroSec = () => {
   return (
     <Con>
       <Left>
-        <h1 className='mb-8'>Building More Than <br />Structures  We Build Legacies.</h1>
+        <h1 className='mb-8'>Building More Than <br /> Structures  We Build Legacies.</h1>
         <p className='sub'>
           At Arcventives Ltd, construction goes beyond concrete. It's about shaping communities,
           solving real-world challenges, and creating structures that stand the test of time.
@@ -18,16 +18,15 @@ const AboutHeroSec = () => {
           <Btn>Request a Quote </Btn>
           <Btn onClick={() => router.push(`/all-projects`)}>View our projects</Btn>
         </div>
+        <div className="btns w-full lg:hidden mt-5 flex flex-col items-center">
+          <GBtn>Request a Quote </GBtn> 
+        </div>
       </Left>
       <Right>
-        <div className='rec'></div>
-        <img className="mt-5" src="/images/himg1.png" alt="img" />
+        <img className="mt-5" src="/images/abhero.png" alt="img" />
       </Right>
-      <div className="btns w-full lg:hidden mt-5 flex flex-col items-center">
-        <GBtn>Request a Quote </GBtn>
-        <Btn>View our services</Btn>
-      </div>
-
+      <div className='green-rec'></div>
+      <div className='white-rec'></div>
     </Con>
   )
 }
@@ -37,22 +36,55 @@ const Con = styled.section`
   display: flex;
   background: #111;
   flex-direction: row-reverse;
+  background: url('/images/abg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;  
+  padding: 90px;
+  position: relative;
   @media (max-width: 1200px) {  
     flex-direction: column;
     height: auto;
+    background: url('/images/mabhero.png');
+    padding: 30px 20px;
   }
   .btns{
     padding: 0 30px;
   }
+  .green-rec{
+    width: 50%;
+    height: 100px;
+    position: absolute;
+    bottom: 50px;
+    left: 30px;
+    background: #00AA59;
+    z-index: 5;
+    @media (max-width: 1200px) {  
+      height: 50px;
+      bottom: 25px;
+
+    }
+  }
+  .white-rec{
+    width: 50%;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #FFF;
+    @media (max-width: 1200px) {  
+      height: 50px; 
+      
+    }
+  }
 `;
 
 const Left = styled.div`   
-    width: 60%;   
-    padding-left :80px;  
-    padding-top:80px;
+    width: 50%;    
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;   
+    padding-left: 80px;
     @media (max-width: 1200px) { 
         width: 100%;
         padding: 30px;
@@ -60,13 +92,15 @@ const Left = styled.div`
     h1{
         color: #FFF;
         font-family: var(--font-phosphate-inline);
-        font-size: 58px;
+        font-size: 40px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
         text-transform: uppercase;
+        white-space: nowrap;
         @media (max-width: 1200px) { 
             font-size: 30px;
+            white-space: normal;
         }
     }
     .sub{
@@ -86,21 +120,18 @@ const Left = styled.div`
 `;
 
 const Right = styled.div`  
-  width: 40%; 
+  width: 50%; 
   height: 100%; 
   display:flex; 
-  flex-direction: column;
-  background: url('/images/pages/home/bg.svg');
-  background-position: center center; 
-  background-repeat: no-repeat;
-  background-size: cover;  
-  padding: 100px 50px;
+  flex-direction: column;  
+  justify-content: center; 
+  padding-right: 80px;  
+  padding-bottom: 80px;
   @media (max-width: 1200px) { 
     width:100%; 
-    padding: 30px;  
+    padding: 30px;   
   }
-  @media (max-width: 380px) {  
-    background: url('/images/pages/home/mbg.svg');  
+  @media (max-width: 380px) {   
   }
   .rec{
     width: 97%;
@@ -109,9 +140,13 @@ const Right = styled.div`
   }
   img{
     width: 97%;
-    height: auto;
-    margin-top: -78px; 
+    height: auto; 
     margin-left: 15px;
+    @media (max-width: 1200px) { 
+      margin-top: 0px; 
+      margin-left: 0px;
+      width: 100%;
+    }
   }
 `;
 

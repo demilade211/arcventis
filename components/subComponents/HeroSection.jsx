@@ -22,7 +22,7 @@ const HeroSection = () => {
   return (
     <Con>
       <Left>
-        <h1 className='mb-8'>Building Tomorrow's <br /> Legacy, Today!</h1>
+        <h1 className=''>Building Tomorrow's <br /> Legacy, Today!</h1>
         <p className='sub'>
           From architectural design to construction execution, Arcventives delivers spaces that stand the test
           of time—trusted by clients across residential, commercial, and industrial sectors. Ready to start your
@@ -67,11 +67,12 @@ const Con = styled.section`
   background: url('/images/hbag.png');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; 
+  background-size: cover;  
   @media (max-width: 1200px) {  
     flex-direction: column;
     height: auto;
-    background: none;
+    background: url('/images/mhbag.png');
+    background-size: cover; 
   }
   .btns{
     padding: 0 30px;
@@ -80,35 +81,66 @@ const Con = styled.section`
 
 const Left = styled.div`   
   width: 60%;   
-  padding-left: 120px;  
+  padding-left: 130px;  
   display: flex;
   flex-direction: column;
   justify-content: center; 
+  @media (max-width: 1360px) { 
+    font-size: 48px; 
+  }
   @media (max-width: 1200px) { 
-      width: 100%;
-      padding: 30px;
-      padding-bottom: 0;
+    width: 100%;
+    font-size: 48px;
+    padding: 30px 0;
+    padding-bottom: 0;
+    padding-left: 100px;
+    padding-right: 50px;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 768px) { 
+    width: 100%;
+    padding: 30px 0;
+    padding-bottom: 0;
+    padding-left: 50px;
+    padding-right: 20px;
+    margin-bottom: 0;
   } 
   h1{
       color: #FFF;
       font-family: var(--font-phosphate-inline);
       font-size: 65px;
       font-weight: 400;
-      text-transform: uppercase;
+      text-transform: uppercase; 
+      margin-bottom: 30px;
+      @media (max-width: 1360px) { 
+          font-size: 48px;
+      }
       @media (max-width: 1200px) { 
           font-size: 28px;
+          margin-top: 40px;
+          margin-bottom: 0;
+      }
+      @media (max-width: 768px) { 
+          font-size: 28px;
+          margin-top: 20px;
+          margin-bottom: 0;
       }
   }
   .sub{
-      width: 90%;
+      width: 87%;
       color: #FFF;
       font-family: Manrope;
       font-size: 18px;
-      font-weight: 400;
+      font-weight: 400; 
       margin-bottom: 20px;
+      @media (max-width: 1360px) { 
+          font-size: 16px;
+      }
       @media (max-width: 1200px) { 
+          margin-top: 20px;
           width: 100%;
           font-size: 12px;
+          margin-bottom: 0;
       }
   } 
 `;
@@ -116,8 +148,7 @@ const Left = styled.div`
 const Right = styled.div`  
   width: 40%; 
   display:flex; 
-  flex-direction: column;
-  background: url('/images/pages/home/bg.svg');
+  flex-direction: column; 
   background-position: center; 
   background-repeat: no-repeat;
   background-size: cover;  
@@ -126,10 +157,7 @@ const Right = styled.div`
   @media (max-width: 1200px) { 
     width:100%; 
     padding: 30px;  
-  }
-  @media (max-width: 380px) {  
-    background: url('/images/pages/home/mbg.svg');  
-  }
+  } 
   .rec{
     width: 86%;
     height: 93px;
@@ -141,8 +169,7 @@ const Right = styled.div`
 `;
 
 const SlideImg = styled.img`
-  width: 86%;
-  height: 500px; 
+  width: 86%; 
   margin-top: -78px; 
   margin-left: 15px;
   animation: ${slideIn} 0.5s ease forwards;

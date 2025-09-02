@@ -95,6 +95,9 @@ const Bottom = styled.div`
                 line-height: normal;
                 cursor: pointer;
                 position: relative;
+                @media (max-width: 1360px) {  
+                    margin:0 20px;
+                }
                 &:hover {  
                     color: #FFF; /* Remove background color on hover */  
                     transition: 200ms ease-in;
