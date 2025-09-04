@@ -56,7 +56,7 @@ const cardDatas = [
 const ProjectsLists = () => {
     return (
         <Con>
-            <div className='flex gap-2 justify-between flex-wrap w-full mt-20'>
+            <ServicesCon>
                 {cardDatas.map((data, i) => (
                     <ProjectCard
                         key={i}
@@ -66,7 +66,7 @@ const ProjectsLists = () => {
                         description={data.description}
                     />
                 ))}
-            </div>
+            </ServicesCon>
         </Con>
     )
 }
@@ -77,8 +77,20 @@ const Con = styled.section`
     background: rgba(245, 245, 249, 1);
     @media (max-width: 1200px) {  
         flex-direction: column-reverse;
-        padding: 20px 20px;
+        padding: 20px 20px; 
     } 
 `
 
+const ServicesCon = styled.div`  
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4,1fr);
+    column-gap: 20px;
+    row-gap: 2px;
+    @media (max-width: 1200px) {
+        grid-template-columns: repeat(2,1fr); 
+        column-gap: 10px; 
+    }  
+`
 export default ProjectsLists

@@ -10,7 +10,7 @@ const ProjectsHeroSec = () => {
     <Con>
       <Top>
         <p className='sub cursor-pointer'>
-          <span onClick={() => router.push(`/`)}>{"Home > "}</span> <span onClick={() => router.push(`/services`)}>{"Services >> "}</span> {"Architectural Design >>> "} <span className='text-[#00AA59]'> Dreamview Estate</span>
+          <span onClick={() => router.push(`/`)}>{"Home > "}</span> <span onClick={() => router.push(`/services`)}>{"Services >> "}</span> <span onClick={() => router.push(`/all-projects`)}>{"Architectural Design >>> "}</span> <span className='text-[#00AA59]'> Dreamview Estate</span>
         </p>
         <h1 className='mb-8'>RESIDENTIAL PROJECTS</h1>
       </Top>

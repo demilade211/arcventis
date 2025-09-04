@@ -1,28 +1,89 @@
 import React from 'react'
 import Link from 'next/link'
-import styled from 'styled-components';
-import Title1 from '../Title1';
+import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-const ServicesSec = ({image, title, description, coverImage, position}) => {
+const ServicesSec = ({ image, title, description, coverImage, position }) => {
     return (
-        <Con className={position}>
-            <ServicesCon>
-                <div className='service'>
-                    <img src={image} alt="img" />
-                    <h3>{title}</h3>
-                    <p>{description}</p>
-                    <Link href={"/service"} className="learn-more">
-                        Learn More
-                        <svg className="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none">
-                            <path d="M1.5 7L16.5 7M16.5 7L10.875 1M16.5 7L10.875 13" stroke="#00AA59" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </Link>
-                </div>
+        <Con
+            className={position}
+            as={motion.section}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+            <ServicesCon
+                as={motion.div}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={{
+                    hidden: { opacity: 0, y: 40 },
+                    visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: { staggerChildren: 0.2, duration: 0.6 }
+                    }
+                }}
+            >
+                <motion.div
+                    className="service"
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                >
+                    <motion.img
+                        src={image}
+                        alt="img"
+                        whileHover={{ rotate: -5, scale: 1.1 }}
+                        transition={{ type: "spring", stiffness: 250 }}
+                    />
+                    <motion.h3 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                        {title}
+                    </motion.h3>
+                    <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                        {description}
+                    </motion.p>
+                    <motion.div
+                        whileHover={{ x: 5 }}
+                        transition={{ type: "tween", duration: 0.2 }}
+                    >
+                        <Link href={`/services/${title}`} className="learn-more">
+                            Learn More
+                            <svg
+                                className="arrow"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="18"
+                                height="14"
+                                viewBox="0 0 18 14"
+                                fill="none"
+                            >
+                                <path
+                                    d="M1.5 7L16.5 7M16.5 7L10.875 1M16.5 7L10.875 13"
+                                    stroke="#00AA59"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                            </svg>
+                        </Link>
+                    </motion.div>
+                </motion.div>
             </ServicesCon>
-            <img className="mt-5" src={coverImage} alt="img" />
+
+            <motion.img
+                className="mt-5"
+                src={coverImage}
+                alt="img"
+                initial={{ scale: 1.1, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.9, ease: "easeOut" }}
+            />
         </Con>
     )
 }
+
 
 const Con = styled.section`  
     width: 100%;    
