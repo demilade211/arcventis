@@ -6,6 +6,11 @@ const ProjectsHeroSec = () => {
   const router = useRouter();
   const pathname = usePathname();
 
+  const [showModal, setShowModal] = React.useState({
+          contact: false,
+          quote: false,
+      });
+
   return (
     <Con>
       <Top>

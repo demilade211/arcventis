@@ -5,15 +5,21 @@ import styled from 'styled-components';
 import Image from 'next/image'
 import { useRouter, usePathname } from 'next/navigation'
 import Router from "next/router"
+import Contacts from "./modals/Contact";
 
 const Navbar = () => {
     const [showNav, setShowNav] = useState(false);
+    const [showModal, setShowModal] = useState({
+        contact: false,
+        quote: false,
+    });
     const router = useRouter();
     const pathname = usePathname()
 
     const isActive = route => pathname === route;
     return (
         <LandingNavbarCon>
+            <Contacts mOpen={showModal.quote} handleModClose={() => setShowModal(prev => ({ ...prev, quote: false }))} />
             <Bottom>
                 <div className="logo flex items-end" onClick={() => router.push(`/`)}>
                     <div className="bg-amber-50 mr-1"><img className="w-full h-full" src="/images/logo.svg" alt="img" /></div>
@@ -25,15 +31,21 @@ const Navbar = () => {
                         <li onClick={() => router.push(`/about`)}>{isActive("/about") && <div className="line"></div>}About us</li>
                         <li onClick={() => router.push(`/services`)}>{isActive("/services") && <div className="line"></div>}Services</li>
                         <li onClick={() => router.push(`/all-projects`)}>{isActive("/all-projects") && <div className="line"></div>}Projects</li>
-                        <li onClick={() => router.push(`/contact`)}>{isActive("/contact") && <div className="line"></div>}Contact Us</li>
-                        <li className="last" onClick={() => router.push(`/`)}>Request a Quote </li>
+                        <li >
+                            {isActive("/contact") && <div className="line"></div>}Contact Us
+                        </li>
+
+                        <li className="last" onClick={() => {
+                            setShowModal(prev => ({ ...prev, quote: true }))
+                            setShowNav(false)
+                        }}>Request a Quote </li>
                     </ul>
                 </nav>
                 <div className='mobile-right'>
                     <img src="/images/ham.svg" alt="img" onClick={() => setShowNav(!showNav)} />
                 </div>
                 <div className={`mobile-nav ${showNav && "active"}`}>
-                    <div className="close" onClick={() => setShowNav(false)} > 
+                    <div className="close" onClick={() => setShowNav(false)} >
                         <svg onClick={() => setShowNav(!showNav)} xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
                             <path d="M9.49998 9.5L15.0416 15.0417M9.49998 9.5L3.95831 3.95833M9.49998 9.5L3.95831 15.0417M9.49998 9.5L15.0416 3.95833" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
@@ -42,9 +54,12 @@ const Navbar = () => {
                         <li onClick={() => router.push(`/`)}>Home</li>
                         <li onClick={() => router.push(`/about`)}>About us</li>
                         <li onClick={() => router.push(`/services`)}>Services</li>
-                        <li onClick={() => router.push(`/products`)}>Projects</li> 
+                        <li onClick={() => router.push(`/products`)}>Projects</li>
                         <li onClick={() => router.push(`/contact`)}>Contact Us</li>
-                        <li onClick={() => router.push(`/`)}>Request a Quote</li>
+                        <li onClick={() => {
+                            setShowModal(prev => ({ ...prev, quote: true }))
+                            setShowNav(false)
+                        }}>Request a Quote</li>
                     </ul>
                 </div>
             </Bottom>

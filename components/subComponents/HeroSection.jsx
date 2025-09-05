@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import styled, { keyframes } from 'styled-components';
 import { useRouter, usePathname } from 'next/navigation'
+import Quote from '../modals/Contact';
 
 const HeroSection = () => {
   const router = useRouter();
@@ -10,6 +11,10 @@ const HeroSection = () => {
 
   const images = ["/images/himg1.png", "/images/himg2.png", "/images/himg3.png", "/images/himg4.png"];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showModal, setShowModal] = useState({
+    contact: false,
+    quote: false,
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,6 +26,7 @@ const HeroSection = () => {
 
   return (
     <Con>
+      <Quote mOpen={showModal.quote} handleModClose={() => setShowModal(prev => ({ ...prev, quote: false }))} />
       <Left>
         <h1 className=''>Building Tomorrow's <br /> Legacy, Today!</h1>
         <p className='sub'>
@@ -29,7 +35,7 @@ const HeroSection = () => {
           next construction project? We are available to provide a Free estimate within 24 hours
         </p>
         <div className="xl:flex items-center gap-2.5 hidden ">
-          <Btn>Request a Quote </Btn>
+          <Btn onClick={() => setShowModal(prev => ({ ...prev, quote: true }))}>Request a Quote </Btn>
           <Btn onClick={() => router.push(`/all-products`)}>View our projects</Btn>
         </div>
       </Left>

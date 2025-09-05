@@ -2,10 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/navigation';
 import { motion, useReducedMotion } from 'framer-motion';
+import Quote from '../modals/Contact';
 
 const AboutHeroSec = () => {
   const router = useRouter();
   const reduceMotion = useReducedMotion();
+
+  const [showModal, setShowModal] = React.useState({
+    contact: false,
+    quote: false,
+  });
 
   // Variants
   const fadeLeft = {
@@ -34,6 +40,7 @@ const AboutHeroSec = () => {
 
   return (
     <Con>
+      <Quote mOpen={showModal.quote} handleModClose={() => setShowModal(prev => ({ ...prev, quote: false }))} />
       <Left
         as={motion.div}
         variants={staggerContainer}
@@ -61,7 +68,7 @@ const AboutHeroSec = () => {
           className="xl:flex items-center gap-2.5 hidden"
           variants={reduceMotion ? {} : fadeUp}
         >
-          <MotionBtn whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+          <MotionBtn onClick={() => setShowModal(prev => ({ ...prev, quote: true }))}  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             Request a Quote
           </MotionBtn>
           <MotionBtn
@@ -74,7 +81,7 @@ const AboutHeroSec = () => {
         </motion.div>
 
         <div className="btns w-full lg:hidden mt-5 flex flex-col items-center">
-          <MotionGBtn whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+          <MotionGBtn onClick={() => setShowModal(prev => ({ ...prev, quote: true }))} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             Request a Quote
           </MotionGBtn>
         </div>
@@ -102,7 +109,10 @@ const Con = styled.section`
   display: flex;
   background: #111;
   flex-direction: row-reverse;
-  background: url('/images/abg.png') center/cover no-repeat;
+  background: url('/images/abg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;  
   padding: 90px;
   position: relative;
   @media (max-width: 1200px) {

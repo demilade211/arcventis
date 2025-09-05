@@ -1,13 +1,20 @@
 import React from 'react'
 import styled from 'styled-components';
 import { useRouter, usePathname } from 'next/navigation'
+import Quote from '../modals/Contact';
 
 const ServiceHeroSec = () => {
   const router = useRouter();
   const pathname = usePathname();
-  
+
+  const [showModal, setShowModal] = React.useState({
+    contact: false,
+    quote: false,
+  });
+
   return (
     <Con>
+      <Quote mOpen={showModal.quote} handleModClose={() => setShowModal(prev => ({ ...prev, quote: false }))} />
       <Left>
         <h1 className='mb-8'>Built to Deliver. <br />Designed to Last.</h1>
         <p className='sub'>
@@ -15,12 +22,12 @@ const ServiceHeroSec = () => {
           Every service is handled with precision, professionalism, and a focus on lasting value.
         </p>
         <div className="xl:flex items-center gap-2.5 hidden ">
-          <Btn>Request a Quote </Btn>
+          <Btn onClick={() => setShowModal(prev => ({ ...prev, quote: true }))}>Request a Quote </Btn>
           <Btn onClick={() => router.push(`/all-projects`)}>View our projects</Btn>
         </div>
 
         <div className="btns w-full lg:hidden mt-5 flex ">
-          <GBtn>Request a Quote </GBtn>
+          <GBtn onClick={() => setShowModal(prev => ({ ...prev, quote: true }))}>Request a Quote </GBtn>
         </div>
       </Left>
       <Right>
@@ -40,6 +47,10 @@ const Con = styled.section`
   background: #111;
   position: relative;
   /* margin-bottom: 50px; */
+  background: url('/images/abg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;  
   @media (max-width: 1200px) {  
     flex-direction: column;
     height: auto;
