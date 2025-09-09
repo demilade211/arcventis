@@ -145,6 +145,10 @@ const GreyInput = styled.input`
     &:focus {
         border: 1px solid black;
     }
+    @media (max-width: 600px) { 
+        height: 40px;
+        font-size: 12px;
+    }
 `;
 
 const Label = styled.p`

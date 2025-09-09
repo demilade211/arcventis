@@ -157,6 +157,7 @@ const ThirdRow = styled.div`
         text-align:center;
         color: #111; 
         margin-bottom: 0;
+        font-size: 14px;
     }
 `;
 

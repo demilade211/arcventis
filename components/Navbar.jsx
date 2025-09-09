@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import Image from 'next/image'
 import { useRouter, usePathname } from 'next/navigation'
 import Router from "next/router"
-import Contacts from "./modals/Contact";
+import Quote from "./modals/Quote";
+import Contact from "./modals/Contact";
 
 const Navbar = () => {
     const [showNav, setShowNav] = useState(false);
@@ -19,7 +20,8 @@ const Navbar = () => {
     const isActive = route => pathname === route;
     return (
         <LandingNavbarCon>
-            <Contacts mOpen={showModal.quote} handleModClose={() => setShowModal(prev => ({ ...prev, quote: false }))} />
+            <Contact mOpen={showModal.contact} handleModClose={() => setShowModal(prev => ({ ...prev, contact: false }))} />
+            <Quote mOpen={showModal.quote} handleModClose={() => setShowModal(prev => ({ ...prev, quote: false }))} />
             <Bottom>
                 <div className="logo flex items-end" onClick={() => router.push(`/`)}>
                     <div className="bg-amber-50 mr-1"><img className="w-full h-full" src="/images/logo.svg" alt="img" /></div>
@@ -31,7 +33,11 @@ const Navbar = () => {
                         <li onClick={() => router.push(`/about`)}>{isActive("/about") && <div className="line"></div>}About us</li>
                         <li onClick={() => router.push(`/services`)}>{isActive("/services") && <div className="line"></div>}Services</li>
                         <li onClick={() => router.push(`/all-projects`)}>{isActive("/all-projects") && <div className="line"></div>}Projects</li>
-                        <li >
+                        <li onClick={() => {
+                            setShowModal(prev => ({ ...prev, contact: true }))
+                            setShowNav(false)
+                        }
+                        } className="contact">
                             {isActive("/contact") && <div className="line"></div>}Contact Us
                         </li>
 
@@ -55,7 +61,12 @@ const Navbar = () => {
                         <li onClick={() => router.push(`/about`)}>About us</li>
                         <li onClick={() => router.push(`/services`)}>Services</li>
                         <li onClick={() => router.push(`/products`)}>Projects</li>
-                        <li onClick={() => router.push(`/contact`)}>Contact Us</li>
+                        <li onClick={
+                            () => {
+                                setShowModal(prev => ({ ...prev, contact: true }))
+                                setShowNav(false)
+                            }
+                        }>Contact Us</li>
                         <li onClick={() => {
                             setShowModal(prev => ({ ...prev, quote: true }))
                             setShowNav(false)

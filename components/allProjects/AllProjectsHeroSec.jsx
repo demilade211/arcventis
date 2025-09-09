@@ -1,25 +1,32 @@
 import React from 'react'
 import styled from 'styled-components';
 import { useRouter, usePathname } from 'next/navigation'
+import Quote from '../modals/Quote';
 
 const AllProjectsHeroSec = () => {
   const router = useRouter();
   const pathname = usePathname();
 
+  const [showModal, setShowModal] = React.useState({
+      contact: false,
+      quote: false,
+    });
+
   return (
     <Con>
+      <Quote mOpen={showModal.quote} handleModClose={() => setShowModal(prev => ({ ...prev, quote: false }))} />
       <Left>
         <h1 className='mb-8'>A Legacy Built, <br />One Project at a Time</h1>
         <p className='sub'>
           Explore a curated showcase of our completed and ongoing projects each one a reflection of our craftsmanship, commitment, and client satisfaction across diverse sectors.
         </p>
         <div className="xl:flex items-center gap-2.5 hidden ">
-          <Btn>Request a Quote </Btn>
+          <Btn onClick={() => setShowModal(prev => ({ ...prev, quote: true }))}>Request a Quote </Btn>
           <Btn onClick={() => router.push(`/all-projects`)}>View our projects</Btn>
         </div>
 
         <div className="btns w-full lg:hidden mt-5 flex flex-col items-center">
-          <GBtn>Request a Quote </GBtn>
+          <GBtn onClick={() => setShowModal(prev => ({ ...prev, quote: true }))}>Request a Quote </GBtn>
         </div>
       </Left>
       <Right>

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import styled, { keyframes } from 'styled-components';
 import { useRouter, usePathname } from 'next/navigation'
-import Quote from '../modals/Contact';
+import Quote from '../modals/Quote';
 
 const HeroSection = () => {
   const router = useRouter();

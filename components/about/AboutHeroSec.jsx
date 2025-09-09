@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/navigation';
 import { motion, useReducedMotion } from 'framer-motion';
-import Quote from '../modals/Contact';
+import Quote from '../modals/Quote';
 
 const AboutHeroSec = () => {
   const router = useRouter();

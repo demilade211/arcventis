@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { useRouter, usePathname } from 'next/navigation'
-import Quote from '../modals/Contact';
+import Quote from '../modals/Quote';
 
 const ServiceHeroSec = () => {
   const router = useRouter();
