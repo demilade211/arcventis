@@ -18,16 +18,16 @@ const Clients = () => {
         <Marquee speed={40} gradient={false} direction="right">
           {[
             "cliImg1.png",
-            "cliImg2.png",
+            "cliImg4.png",
             "cliImg3.png",
             "cliImg1.png",
-            "cliImg4.png",
+            "cliImg2.png",
             "cliImg6.png",
             "cliImg7.png",
             "cliImg8.png",
             "cliImg4.png",
           ].map((img, i) => (
-            <div className="brand-box" key={i}>
+            <div className={`brand-box ${(i === 1||i===8) && "red" } ${i===7 && "blue"} ${i===5 && "red1"}`} key={i}>
               <img src={`/images/clients/${img}`} alt="brand" />
             </div>
           ))}
@@ -44,9 +44,9 @@ const Clients = () => {
             "cliImg8.png",
             "cliImg1.png",
             "cliImg8.png",
-            "cliImg8.png",
+            "cliImg1.png",
           ].map((img, i) => (
-            <div className="brand-box no-top" key={i}>
+            <div className={`brand-box no-top ${(i === 3) && "red" } ${(i === 5||i===7) && "blue" }`} key={i}>
               <img src={`/images/clients/${img}`} alt="brand" />
             </div>
           ))}
@@ -89,6 +89,15 @@ const Con = styled.section`
                 height: 80px;  /* was 91px */
                 padding: 10px 12px; /* was 12px 15px */
             }
+        }
+        .red{
+          background: rgba(213, 15, 2, 1);
+        }
+        .blue{
+          background: rgba(10, 28, 42, 1);
+        }
+        .red1{
+          background: rgba(209, 0, 39, 1);
         }
 
         .no-top{
