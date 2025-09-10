@@ -24,6 +24,7 @@ const style = {
     '@media (max-width: 500px)': {
         width: "90%",
         borderRadius: "10px",
+        overflow: "auto",
     }, 
 };
 

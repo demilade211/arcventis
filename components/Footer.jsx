@@ -10,9 +10,8 @@ const Footer = () => {
         <Con>
             <FirstRow>
                 <div className=''>
-                    <div className="logo flex items-end" onClick={() => router.push(`/`)}>
-                        <div className="bg-amber-50"><img className="w-full h-full" src="/images/logo.svg" alt="img" /></div>
-                        <img className="" src="/images/logo-txt.svg" alt="img" />
+                    <div className="w-[127px] mb-3" onClick={() => router.push(`/`)}>
+                        <img className="" src="/images/logo1.png" alt="img" />
                     </div>
                     <p>
                         From architectural design to construction execution, Arcventives delivers spaces that stand the test
@@ -43,18 +42,18 @@ const Footer = () => {
                 </div>
                 <div className='hidden lg:block'>
                     <p className='bold'>OUR SERVICES</p>
-                    <p>Architectural Design</p> 
-                    <p>Building Construction</p> 
-                    <p>ME  Installations</p> 
-                    <p>Renovation & Remodeling</p> 
-                    <p>Construction Consultancy</p> 
+                    <p>Architectural Design</p>
+                    <p>Building Construction</p>
+                    <p>ME  Installations</p>
+                    <p>Renovation & Remodeling</p>
+                    <p>Construction Consultancy</p>
                 </div>
                 <div className='hidden lg:block'>
-                    <p className='bold invisible'> cc</p> 
-                    <p>Structural Engineering</p> 
-                    <p>Project Management & Supervision</p> 
-                    <p>Quantity Surveying & Cost Estimation</p> 
-                    <p>Interior Fit-Out & Finishing</p> 
+                    <p className='bold invisible'> cc</p>
+                    <p>Structural Engineering</p>
+                    <p>Project Management & Supervision</p>
+                    <p>Quantity Surveying & Cost Estimation</p>
+                    <p>Interior Fit-Out & Finishing</p>
                     <p>Civil & Infrastructure Works</p>
                 </div>
 

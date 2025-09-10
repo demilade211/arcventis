@@ -23,9 +23,8 @@ const Navbar = () => {
             <Contact mOpen={showModal.contact} handleModClose={() => setShowModal(prev => ({ ...prev, contact: false }))} />
             <Quote mOpen={showModal.quote} handleModClose={() => setShowModal(prev => ({ ...prev, quote: false }))} />
             <Bottom>
-                <div className="logo flex items-end" onClick={() => router.push(`/`)}>
-                    <div className="bg-amber-50 mr-1"><img className="w-full h-full" src="/images/logo.svg" alt="img" /></div>
-                    <img className="" src="/images/logo-txt.svg" alt="img" />
+                <div className="w-[127px]" onClick={() => router.push(`/`)}> 
+                    <img className="" src="/images/logo1.png" alt="img" />
                 </div>
                 <nav>
                     <ul>
