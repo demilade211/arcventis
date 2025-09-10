@@ -41,19 +41,19 @@ const ServiceHeroSec = () => {
 }
 
 const Con = styled.section`  
-  width: 100%;
-  height: 100%;  
+  width: 100%; 
   display: flex;
   background: #111;
   position: relative;
   /* margin-bottom: 50px; */
-  background: url('/images/abg.png');
+  background: url('/images/sabg1.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;  
   @media (max-width: 1200px) {  
     flex-direction: column;
     height: auto;
+    background: #111;
   } 
   .abs-rec{
     width: 50%;
@@ -74,12 +74,12 @@ const Con = styled.section`
 
 const Left = styled.div`   
     width: 50%;   
-    padding-left :80px;  
+    padding-left :200px;  
     padding-top:80px;
     padding-bottom: 80px;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;  
     @media (max-width: 1200px) { 
         width: 100%;
         padding: 30px;
@@ -87,7 +87,7 @@ const Left = styled.div`
     h1{
         color: #FFF;
         font-family: var(--font-phosphate-inline);
-        font-size: 58px;
+        font-size: 40px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -97,7 +97,7 @@ const Left = styled.div`
         }
     }
     .sub{
-        width: 90%;
+        width: 85%;
         color: #FFF;
         font-family: Manrope;
         font-size: 18px;
@@ -131,12 +131,12 @@ const Right = styled.div`
     background: url('/images/pages/home/mbg.svg');  
   }
   .rec{
-    width: 100%;
+    width: 98%;
     height: 100px;
     background: #00AA59;
     position: absolute; 
     bottom: -20px;
-    left: -50px;
+    left: -30px;
     z-index: 10;
     @media (max-width: 1200px) { 
       width:50%; 
@@ -148,7 +148,7 @@ const Right = styled.div`
   img{
     width: 100%;
     height: auto;
-    margin-top: -78px; 
+    margin-top: -40px; 
     margin-left: 15px;
     @media (max-width: 1200px) { 
       margin-top: 0;

@@ -28,6 +28,8 @@ const style = {
     }, 
 };
 
+
+
 const Quote = ({ mOpen, handleModClose }) => {
 
     //const { user } = useSelector((state) => state.userReducer);
