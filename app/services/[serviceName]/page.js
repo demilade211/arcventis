@@ -34,7 +34,7 @@ We provide structural analysis, load calculations, reinforcement detailing, and 
 Our portfolio includes high-rise residences, industrial facilities, and complex institutional projects that have stood strong against environmental and usage demands. With us, you can be assured that your building is engineered for strength and reliability.`,
         image: '/images/services/simg3.png',
     },
-    'renovation-remodeling': {
+    'renovation-&-remodeling': {
         title: 'Renovation & Remodeling',
         description: `Buildings need to adapt as times change. Our renovation and remodeling services breathe new life into old spaces, making them functional, modern, and valuable once more.
 From complete structural overhauls to interior reconfigurations, we handle upgrades with creativity and precision. Whether you need to modernize a family home, repurpose a commercial space, or enhance an aging facility, our team delivers transformations that are seamless and cost-effective.
@@ -47,33 +47,33 @@ Clients appreciate our ability to preserve the character of their properties whi
 We’ve helped clients refine their ideas, evaluate risks, select contractors, and manage costs with confidence. Our consultancy team draws on real-world project experience, ensuring that advice is practical, actionable, and tailored to each unique project.`,
         image: '/images/services/simg5.png',
     },
-    'civil-infrastructure-works': {
+    'civil-&-infrastructure-works': {
         title: 'Civil & Infrastructure Works',
         description: `Communities thrive when supported by resilient infrastructure. Arcventives contributes to nation-building through the delivery of roads, drainage systems, culverts, and other civil works that improve access and functionality.
 We combine engineering expertise with modern construction technology to deliver infrastructure that is safe, durable, and sustainable. From estate roads and stadiums to drainage control systems, our work meets the demands of both urban and rural environments.
 Our projects have supported local governments, private developers, and corporate clients — helping shape environments that drive growth and opportunity.`,
         image: '/images/services/simg10.png',
     },
-    'interior-fit-out-finishing': {
+    'interior-fit-out-&-finishing': {
         title: 'Interior Fit-Out & Finishing',
         description: `A building’s interior is where users experience its true character. Our fit-out and finishing services transform raw structures into polished, functional, and inviting spaces.
 We manage flooring, ceilings, painting, partitions, lighting, cabinetry, and other finishing details. Each element is executed with craftsmanship and precision, ensuring that the final product is not only beautiful but also durable.
 Arcventives has delivered bespoke interiors for homes, offices, retail spaces, and hospitality facilities — always tailored to client specifications and lifestyle needs. With us, interiors become experiences.`,
         image: '/images/services/simg9.png',
     },
-    'quantity-surveying-cost-estimation': {
+    'quantity-surveying-&-cost-estimation': {
         title: 'Quantity Surveying & Cost Estimation',
         description: `Financial planning is key to project success. Our quantity surveying and cost estimation services provide clients with accurate, transparent, and reliable cost control throughout the project lifecycle.
 We prepare Bills of Quantities (BOQs), analyze contractor bids, conduct value engineering, and monitor expenditures to keep projects within budget. Clients benefit from our commitment to honesty and efficiency, which helps avoid cost overruns and ensures value for money.`,
         image: '/images/services/simg8.png',
     },
-    'project-management-supervision': {
+    'project-management-&-supervision': {
         title: 'Project Management & Supervision',
         description: `Every project needs strong leadership to succeed. Our project management and supervision services ensure construction is delivered on time, within scope, and to the highest standards.
 We oversee planning, resource allocation, contractor coordination, and quality control. By anticipating challenges and resolving them quickly, we keep projects moving seamlessly from foundation to finish.`,
         image: '/images/services/simg7.png',
     },
-    'mep-installations': {
+    'me-installations': {
         title: 'MEP Installations',
         description: `Mechanical, Electrical, and Plumbing (MEP) systems are the lifelines of any modern building. At Arcventives, we design and install integrated systems that support safety, efficiency, and comfort.
 Our services include HVAC systems, power distribution, water supply, drainage networks, and fire protection installations. We adopt energy-efficient and sustainable practices to deliver systems that perform reliably over the long term.`,
@@ -90,12 +90,14 @@ const ServicePage = () => {
     // decode URL‐encoded param
     serviceParam = decodeURIComponent(serviceParam)
 
-    console.log(serviceParam);
+    
 
     // match service detail
     const slug = serviceParam.trim()
         .toLowerCase()
         .replace(/\s+/g, '-')
+
+        console.log(slug);
 
     const detail = serviceDetails[slug] || {
         title: 'Service Not Found',

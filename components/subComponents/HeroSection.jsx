@@ -36,7 +36,7 @@ const HeroSection = () => {
         </p>
         <div className="xl:flex items-center gap-2.5 hidden ">
           <Btn onClick={() => setShowModal(prev => ({ ...prev, quote: true }))}>Request a Quote </Btn>
-          <Btn onClick={() => router.push(`/all-products`)}>View our projects</Btn>
+          <Btn onClick={() => router.push(`/all-projects`)}>View our projects</Btn>
         </div>
       </Left>
       <Right>

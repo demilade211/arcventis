@@ -32,7 +32,7 @@ const Navbar = () => {
         "Civil & Infrastructure Works"
     ];
 
-    const projects = ["Residential", "Commercial", "Industrial", "Infrastructure"];
+    const projects = ["Residential", "Commercial", "Industrial", "Infrastructure","Master Plan","Mixed Use",'Hospitality',"Retail","Civil & Infrastructure Works"];
 
     return (
         <LandingNavbarCon>
