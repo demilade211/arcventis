@@ -155,19 +155,44 @@ const Contact = ({ mOpen, handleModClose }) => {
                                     <p className="mb-2">Follow us on our socials</p>
                                     <div className='flex items-center gap-2'>
                                         <a href="https://facebook.com/arcventives" target="_blank" rel="noopener noreferrer">
-                                            <img className="cursor-pointer" src="/images/contact/bfb.svg" alt="facebook" />
+                                            <img
+                                                className="cursor-pointer"
+                                                src="/images/contact/bfb.svg"
+                                                alt="facebook"
+                                                onMouseEnter={(e) => e.currentTarget.src = "/images/contact/gbfb.svg"}
+                                                onMouseLeave={(e) => e.currentTarget.src = "/images/contact/bfb.svg"}
+                                            />
                                         </a>
                                         <a href="https://twitter.com/arcventives" target="_blank" rel="noopener noreferrer">
-                                            <img className="cursor-pointer" src="/images/contact/btw.svg" alt="twitter" />
+                                            <img
+                                                className="cursor-pointer"
+                                                src="/images/contact/btw.svg"
+                                                alt="twitter"
+                                                onMouseEnter={(e) => e.currentTarget.src = "/images/contact/gbtw.svg"}
+                                                onMouseLeave={(e) => e.currentTarget.src = "/images/contact/btw.svg"}
+                                            />
                                         </a>
                                         <a href="https://instagram.com/arcventives" target="_blank" rel="noopener noreferrer">
-                                            <img className="cursor-pointer" src="/images/contact/binst.svg" alt="instagram" />
+                                            <img
+                                                className="cursor-pointer"
+                                                src="/images/contact/binst.svg"
+                                                alt="instagram"
+                                                onMouseEnter={(e) => e.currentTarget.src = "/images/contact/gbinst.svg"}
+                                                onMouseLeave={(e) => e.currentTarget.src = "/images/contact/binst.svg"}
+                                            />
                                         </a>
                                         <a href="https://linkedin.com/company/arcventives" target="_blank" rel="noopener noreferrer">
-                                            <img className="cursor-pointer" src="/images/contact/blinIn.svg" alt="linkedin" />
+                                            <img
+                                                className="cursor-pointer"
+                                                src="/images/contact/blinIn.svg"
+                                                alt="linkedin"
+                                                onMouseEnter={(e) => e.currentTarget.src = "/images/contact/gblinIn.svg"}
+                                                onMouseLeave={(e) => e.currentTarget.src = "/images/contact/blinIn.svg"}
+                                            />
                                         </a>
                                     </div>
                                 </div>
+
                             </div>
 
                             <div className="row hidden lg:block">

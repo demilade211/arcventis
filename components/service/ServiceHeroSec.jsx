@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { useRouter, usePathname } from 'next/navigation'
 
-const ServiceHeroSec = () => {
+const ServiceHeroSec = ({title}) => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -10,9 +10,9 @@ const ServiceHeroSec = () => {
     <Con>
       <Top>
         <p className='sub cursor-pointer'>
-          <span onClick={() => router.push(`/`)}>{"Home > "}</span> <span onClick={() => router.push(`/services`)}>{"Services >> "}</span> {"Architectural Design >>> "} <span className='text-[#00AA59]'> Dreamview Estate</span>
+          <span onClick={() => router.push(`/`)}>{"Home > "}</span> <span onClick={() => router.push(`/services`)}>{"Services >> "}</span><span className='text-[#00AA59]'> {`${title}`}  </span> 
         </p>
-        <h1 className='mb-8'>Architectural Design</h1>
+        <h1 className='mb-8'>{title}</h1>
       </Top>
       <Bottom>
         <img className="mt-5 object-center" src="/images/services/simg1.png" alt="img" />

@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import { useRouter } from 'next/navigation';
 
@@ -9,30 +9,39 @@ const Footer = () => {
     const currentYear = currentDate.getFullYear();
     const router = useRouter();
 
+    // Track which social icon is hovered
+    const [hoveredIcon, setHoveredIcon] = useState(null);
+
+    const socialIcons = [
+        { name: 'fb', link: 'https://www.facebook.com/share/1LP5fHveBP/', alt: 'Facebook' },
+        { name: 'tw', link: 'https://x.com/arcventives?t=CGCnJfDzR_ifz3zle8PSFw&s=09', alt: 'Twitter' },
+        { name: 'inst', link: 'https://www.instagram.com/arcventives?igsh=OTM1NXU5ZDExaWd0', alt: 'Instagram' },
+        { name: 'linIn', link: 'https://www.linkedin.com/company/arcventives-limited/', alt: 'LinkedIn' },
+    ];
+
     return (
         <Con>
             <FirstRow>
-                <div className=''>
+                <div>
                     <div className="w-[127px] mb-3 cursor-pointer" onClick={() => router.push(`/`)}>
-                        <img className="" src="/images/logo1.png" alt="img" />
+                        <img src="/images/logo1.png" alt="logo" />
                     </div>
                     <p>
                         From architectural design to construction execution, Arcventives delivers spaces that stand the test
                         of time—trusted by clients across residential, commercial, and industrial sectors.
                     </p>
                     <div className='flex items-center gap-2'>
-                        <a href="https://www.facebook.com/share/1LP5fHveBP/" target="_blank" rel="noopener noreferrer">
-                            <img className="cursor-pointer" src="/images/footer/fb.svg" alt="Facebook" />
-                        </a>
-                        <a href="https://x.com/arcventives?t=CGCnJfDzR_ifz3zle8PSFw&s=09" target="_blank" rel="noopener noreferrer">
-                            <img className="cursor-pointer" src="/images/footer/tw.svg" alt="Twitter" />
-                        </a>
-                        <a href="https://www.instagram.com/arcventives?igsh=OTM1NXU5ZDExaWd0" target="_blank" rel="noopener noreferrer">
-                            <img className="cursor-pointer" src="/images/footer/inst.svg" alt="Instagram" />
-                        </a>
-                        <a href="https://www.linkedin.com/company/arcventives-limited/" target="_blank" rel="noopener noreferrer">
-                            <img className="cursor-pointer" src="/images/footer/linIn.svg" alt="LinkedIn" />
-                        </a>
+                        {socialIcons.map((icon) => (
+                            <a key={icon.name} href={icon.link} target="_blank" rel="noopener noreferrer">
+                                <img
+                                    className="cursor-pointer"
+                                    src={`/images/footer/${hoveredIcon === icon.name ? 'g' + icon.name : icon.name}.svg`}
+                                    alt={icon.alt}
+                                    onMouseEnter={() => setHoveredIcon(icon.name)}
+                                    onMouseLeave={() => setHoveredIcon(null)}
+                                />
+                            </a>
+                        ))}
                     </div>
                 </div>
 
@@ -45,13 +54,12 @@ const Footer = () => {
                     </div>
                     <div>
                         <p className='bold'>Quick Links</p>
-                        <p className="cursor-pointer" onClick={() => router.push(`/`)}>Home</p>
-                        <p className="cursor-pointer" onClick={() => router.push(`/about`)}>About Us</p>
-                        <p className="cursor-pointer" onClick={() => router.push(`/services`)}>Services</p>
-                        <p className="cursor-pointer" onClick={() => router.push(`/all-projects`)}>Projects</p>
-                        {/* <p className="cursor-pointer" onClick={() => router.push(`/contact`)}>Contact Us</p> */}
+                        <QuickLink onClick={() => router.push(`/`)}>Home</QuickLink>
+                        <QuickLink onClick={() => router.push(`/about`)}>About Us</QuickLink>
+                        <QuickLink onClick={() => router.push(`/services`)}>Services</QuickLink>
+                        <QuickLink onClick={() => router.push(`/all-projects`)}>Projects</QuickLink>
+                        {/* <QuickLink onClick={() => router.push(`/contact`)}>Contact Us</QuickLink> */}
                     </div>
-
                 </div>
 
                 <div className='hidden lg:block'>
@@ -122,13 +130,6 @@ const Con = styled.section`
         margin-bottom: 20px;
         text-transform: uppercase;
     }
-    .logo{ 
-        cursor: pointer;
-        margin-bottom: 20px;
-        @media (max-width: 600px) { 
-            width: 131px; 
-        }
-    }
 `;
 
 const FirstRow = styled.div`     
@@ -154,6 +155,15 @@ const ThirdRow = styled.div`
         color: #111; 
         margin-bottom: 0;
         font-size: 14px;
+    }
+`;
+
+// Styled QuickLink with hover effect
+const QuickLink = styled.p`
+    cursor: pointer;
+    transition: color 0.3s ease;
+    &:hover {
+        color: #00AA59;
     }
 `;
 

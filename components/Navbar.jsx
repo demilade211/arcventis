@@ -2,9 +2,7 @@
 
 import React, { useState } from "react";
 import styled from 'styled-components';
-import Image from 'next/image'
 import { useRouter, usePathname } from 'next/navigation'
-import Router from "next/router"
 import Quote from "./modals/Quote";
 import Contact from "./modals/Contact";
 
@@ -14,29 +12,88 @@ const Navbar = () => {
         contact: false,
         quote: false,
     });
+    const [showServicesDrop, setShowServicesDrop] = useState(false);
+    const [showProjectsDrop, setShowProjectsDrop] = useState(false);
+
     const router = useRouter();
     const pathname = usePathname()
-
     const isActive = route => pathname === route;
+
+    const services = [
+        "Architectural Design",
+        "Building Construction",
+        "Structural Engineering",
+        "Renovation & Remodeling",
+        "Construction Consultancy",
+        "ME Installations",
+        "Project Management & Supervision",
+        "Quantity Surveying & Cost Estimation",
+        "Interior Fit-Out & Finishing",
+        "Civil & Infrastructure Works"
+    ];
+
+    const projects = ["Residential", "Commercial", "Industrial", "Infrastructure"];
+
     return (
         <LandingNavbarCon>
             <Contact mOpen={showModal.contact} handleModClose={() => setShowModal(prev => ({ ...prev, contact: false }))} />
             <Quote mOpen={showModal.quote} handleModClose={() => setShowModal(prev => ({ ...prev, quote: false }))} />
+
             <Bottom>
-                <div className="w-[127px]" onClick={() => router.push(`/`)}> 
+                {/* Logo */}
+                <div className="w-[127px]" onClick={() => router.push(`/`)}>
                     <img className="" src="/images/logo1.png" alt="img" />
                 </div>
+
+                {/* Desktop Nav */}
                 <nav>
                     <ul>
                         <li onClick={() => router.push(`/`)}>{isActive("/") && <div className="line"></div>}Home</li>
                         <li onClick={() => router.push(`/about`)}>{isActive("/about") && <div className="line"></div>}About us</li>
-                        <li onClick={() => router.push(`/services`)}>{isActive("/services") && <div className="line"></div>}Services</li>
-                        <li onClick={() => router.push(`/all-projects`)}>{isActive("/all-projects") && <div className="line"></div>}Projects</li>
-                        <li onClick={() => {
-                            setShowModal(prev => ({ ...prev, contact: true }))
-                            setShowNav(false)
-                        }
-                        } className="contact">
+
+                        {/* Services with dropdown */}
+                        <li
+                             
+                            onMouseEnter={() => setShowServicesDrop(true)}
+                            onMouseLeave={() => setShowServicesDrop(false)}
+                        >
+                            {isActive("/services") && <div  className="line"></div>}Services
+                            {showServicesDrop && (
+                                <DropCon>
+                                    {services.map((s, idx) => (
+                                        <div key={idx} className="item" onClick={() => router.push(`/services/${s}`)}>
+                                            {s}
+                                        </div>
+                                    ))}
+                                </DropCon>
+                            )}
+                        </li>
+
+                        {/* Projects with dropdown */}
+                        <li
+                             
+                            onMouseEnter={() => setShowProjectsDrop(true)}
+                            onMouseLeave={() => setShowProjectsDrop(false)}
+                        >
+                            {isActive("/all-projects") && <div className="line"></div>}Projects
+                            {showProjectsDrop && (
+                                <DropCon>
+                                    {projects.map((p, idx) => (
+                                        <div key={idx} className="item" onClick={() => router.push(`/projects/${p.toLowerCase()}`)}>
+                                            {p}
+                                        </div>
+                                    ))}
+                                </DropCon>
+                            )}
+                        </li>
+
+                        <li
+                            onClick={() => {
+                                setShowModal(prev => ({ ...prev, contact: true }))
+                                setShowNav(false)
+                            }}
+                            className="contact"
+                        >
                             {isActive("/contact") && <div className="line"></div>}Contact Us
                         </li>
 
@@ -46,26 +103,50 @@ const Navbar = () => {
                         }}>Request a Quote </li>
                     </ul>
                 </nav>
+
+                {/* Mobile Menu */}
                 <div className='mobile-right'>
                     <img src="/images/ham.svg" alt="img" onClick={() => setShowNav(!showNav)} />
                 </div>
+
                 <div className={`mobile-nav ${showNav && "active"}`}>
                     <div className="close" onClick={() => setShowNav(false)} >
-                        <svg onClick={() => setShowNav(!showNav)} xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
-                            <path d="M9.49998 9.5L15.0416 15.0417M9.49998 9.5L3.95831 3.95833M9.49998 9.5L3.95831 15.0417M9.49998 9.5L15.0416 3.95833" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                            <path d="M9.5 9.5L15 15M9.5 9.5L4 4M9.5 9.5L4 15M9.5 9.5L15 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </div>
                     <ul>
                         <li onClick={() => router.push(`/`)}>Home</li>
                         <li onClick={() => router.push(`/about`)}>About us</li>
-                        <li onClick={() => router.push(`/services`)}>Services</li>
+
+                        {/* Mobile Services dropdown */}
+                        <li onClick={() => router.push(`/services`)} >Services</li>
+                        {showServicesDrop && (
+                            <DropCon>
+                                {services.map((s, idx) => (
+                                    <div key={idx} className="item" onClick={() => router.push(`/services/${s.toLowerCase()}`)}>
+                                        {s}
+                                    </div>
+                                ))}
+                            </DropCon>
+                        )}
+
+                        {/* Mobile Projects dropdown */}
                         <li onClick={() => router.push(`/all-projects`)}>Projects</li>
-                        <li onClick={
-                            () => {
-                                setShowModal(prev => ({ ...prev, contact: true }))
-                                setShowNav(false)
-                            }
-                        }>Contact Us</li>
+                        {showProjectsDrop && (
+                            <DropCon>
+                                {projects.map((p, idx) => (
+                                    <div key={idx} className="item" onClick={() => router.push(`/projects/${p.toLowerCase()}`)}>
+                                        {p}
+                                    </div>
+                                ))}
+                            </DropCon>
+                        )}
+
+                        <li onClick={() => {
+                            setShowModal(prev => ({ ...prev, contact: true }))
+                            setShowNav(false)
+                        }}>Contact Us</li>
                         <li onClick={() => {
                             setShowModal(prev => ({ ...prev, quote: true }))
                             setShowNav(false)
@@ -205,6 +286,31 @@ const Bottom = styled.div`
             display:block;  
         }
     }
+`;
+const DropCon = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0; 
+  border-radius: 10px;
+  background: #FFF;
+  padding: 10px 3px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 10;
+
+  .item {
+    padding: 10px 20px;
+    border-bottom: 1px solid #E8E8E8;
+    cursor: pointer;
+    color: #111;
+    white-space: nowrap;
+    &:hover {
+      color: #00AA59;
+    }
+  }
+
+  .item:last-child {
+    border-bottom: none;
+  }
 `;
 
 const NavButton = styled.button` 

@@ -1,14 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const ServiceDescription = () => {
+const ServiceDescription = ({description}) => {
     return (
         <Con>
-            <p>Great construction begins with visionary design. At Arcventives, our architectural design services provide clients with more than just drawings — we offer holistic concepts that are functional, aesthetically balanced, and structurally viable.
-            <br/><br/>
-            Our process starts by understanding your goals, the intended use of the space, site constraints, and environmental considerations. From there, our team of architects and planners develop design proposals that blend creativity with compliance. Whether it’s a sleek modern residence, a commercial hub, or a public institution, we prioritize space optimization, sustainability, and local relevance.
-            <br/><br/>
-            Over the years, our design solutions have evolved into remarkable buildings that respond to user needs and stand as icons within their communities. Clients trust us for our transparency, adaptability, and the ability to bring their ideas to life with architectural integrity.
+            <p> 
+                {description}
             </p>
 
             <Right>

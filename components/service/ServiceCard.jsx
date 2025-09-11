@@ -9,7 +9,7 @@ const ServiceCard = ({image, name, description}) => {
                 <img className="mb-4" src={image} alt="img" />
                 <h2 className='name mt-1 mb-1'>{name}</h2>
                 <p className='role mt-4 mb-8'>{description}</p>
-                <Link href={"/service"} className='action font-bold'>Read More</Link>
+                <Link href={`/services/${name}`} className='action font-bold'>Read More</Link>
             </div>
         </Con>
     )
