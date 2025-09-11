@@ -128,28 +128,62 @@ const Contact = ({ mOpen, handleModClose }) => {
                         <Right>
                             <div className="row">
                                 <div className="mb-5">
-                                    <p className='flex mb-2'><img className="mr-2 cursor-pointer" src="/images/contact/badd.svg" alt="img" />350C MCDonal Akano, Omole Phase 1, <br />Ojodu Berger Lagos. Nigeria</p>
-                                    <p className='flex mb-2'><img className="mr-2 cursor-pointer" src="/images/contact/bpho.svg" alt="img" />+234 802 3080 175, +234 809 8008 157.</p>
-                                    <p className='flex mb-2'><img className="mr-3 cursor-pointer" src="/images/contact/bmail.svg" alt="img" />Hello@arcventives.com</p>
+                                    <p className='flex mb-2'>
+                                        <img className="mr-2 cursor-pointer" src="/images/contact/badd.svg" alt="address" />
+                                        <a
+                                            href="https://www.google.com/maps?q=350C+MCDonal+Akano,+Omole+Phase+1,+Ojodu+Berger+Lagos"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="hover:underline"
+                                        >
+                                            350C MCDonal Akano, Omole Phase 1, <br />Ojodu Berger Lagos. Nigeria
+                                        </a>
+                                    </p>
+                                    <p className='flex mb-2'>
+                                        <img className="mr-2 cursor-pointer" src="/images/contact/bpho.svg" alt="phone" />
+                                        <a href="tel:+2348023080175" className="hover:underline">+234 802 3080 175</a>,{" "}
+                                        <a href="tel:+2348098008157" className="hover:underline">+234 809 8008 157</a>
+                                    </p>
+                                    <p className='flex mb-2'>
+                                        <img className="mr-3 cursor-pointer" src="/images/contact/bmail.svg" alt="email" />
+                                        <a href="mailto:Hello@arcventives.com" className="hover:underline">Hello@arcventives.com</a>
+                                    </p>
                                 </div>
+
                                 <div>
                                     <h1 className="mb-2">Stay Tuned</h1>
                                     <p className="mb-2">Follow us on our socials</p>
                                     <div className='flex items-center gap-2'>
-                                        <img className="cursor-pointer" src="/images/contact/bfb.svg" alt="img" />
-                                        <img className="cursor-pointer" src="/images/contact/btw.svg" alt="img" />
-                                        <img className="cursor-pointer" src="/images/contact/binst.svg" alt="img" />
-                                        <img className="cursor-pointer" src="/images/contact/blinIn.svg" alt="img" />
+                                        <a href="https://facebook.com/arcventives" target="_blank" rel="noopener noreferrer">
+                                            <img className="cursor-pointer" src="/images/contact/bfb.svg" alt="facebook" />
+                                        </a>
+                                        <a href="https://twitter.com/arcventives" target="_blank" rel="noopener noreferrer">
+                                            <img className="cursor-pointer" src="/images/contact/btw.svg" alt="twitter" />
+                                        </a>
+                                        <a href="https://instagram.com/arcventives" target="_blank" rel="noopener noreferrer">
+                                            <img className="cursor-pointer" src="/images/contact/binst.svg" alt="instagram" />
+                                        </a>
+                                        <a href="https://linkedin.com/company/arcventives" target="_blank" rel="noopener noreferrer">
+                                            <img className="cursor-pointer" src="/images/contact/blinIn.svg" alt="linkedin" />
+                                        </a>
                                     </div>
                                 </div>
                             </div>
+
                             <div className="row hidden lg:block">
                                 <p className="mb-5">
-                                    Can't wait? We get it. Chat with a customer agent on WhatsApp now. 
+                                    Can't wait? We get it. Chat with a customer agent on WhatsApp now.
                                 </p>
-                                <Btn>Proceed to Chat</Btn>
+                                <a
+                                    href="https://wa.me/2348023080175"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Btn>Proceed to Chat</Btn>
+                                </a>
                             </div>
                         </Right>
+
                     </div>
                 </ModCon>
 
@@ -304,11 +338,15 @@ const Btn = styled.button`
     font-size: 14px;
     font-weight: 400;
     cursor:pointer;
+    transition: 300ms ease-in-out;
     @media (max-width: 1200px) {  
         border-radius: 5px;
         height: 30px;
         padding: 7px 12px 7px 13px;
     } 
+    &:hover{
+      transform: scale(1.05);
+    }
 `;
 
 export default Contact

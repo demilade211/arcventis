@@ -59,7 +59,7 @@ const Navbar = () => {
                         <li onClick={() => router.push(`/`)}>Home</li>
                         <li onClick={() => router.push(`/about`)}>About us</li>
                         <li onClick={() => router.push(`/services`)}>Services</li>
-                        <li onClick={() => router.push(`/products`)}>Projects</li>
+                        <li onClick={() => router.push(`/all-projects`)}>Projects</li>
                         <li onClick={
                             () => {
                                 setShowModal(prev => ({ ...prev, contact: true }))

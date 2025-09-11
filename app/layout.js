@@ -15,9 +15,9 @@ const phosphateInline = localFont({
 });
 
 export const metadata = {
-  title: "Acroventures Ltd - Building Tomorrow's Legacy, Today!",
+  title: "Arcventives Ltd - Building Tomorrow's Legacy, Today!",
   description:
-    "From architecture to construction execution, Acroventures delivers innovative spaces tailored to client needs across residential, commercial, and industrial projects.",
+    "From architecture to construction execution, Arcventives delivers innovative spaces tailored to client needs across residential, commercial, and industrial projects.",
   keywords: [
     "construction company",
     "building contractors",
@@ -26,17 +26,17 @@ export const metadata = {
     "Nigeria construction"
   ],
   openGraph: {
-    title: "Acroventures Ltd",
+    title: "Arcventives Ltd",
     description:
       "Trusted by clients, powered by experience, delivered by engineers. Building Tomorrow’s Legacy, Today!",
-    url: "https://acroventures.com",
-    siteName: "Acroventures Ltd",
+    url: "https://arcventives.com",
+    siteName: "Arcventives Ltd",
     images: [
       {
         url: "/seo/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Acroventures Construction"
+        alt: "Arcventives Construction"
       }
     ],
     locale: "en_US",

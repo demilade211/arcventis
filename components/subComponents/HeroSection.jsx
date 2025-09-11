@@ -200,11 +200,15 @@ const Btn = styled.button`
   font-size: 14px;
   font-weight: 400;
   cursor:pointer;
+  transition: 300ms ease-in-out;
   @media (max-width: 1200px) { 
       width: 100%; 
       border-radius: 5px;
       height: 50px;
   } 
+  &:hover{
+      transform: scale(1.05);
+    }
 `;
 
 const GBtn = styled(Btn)`  

@@ -1,4 +1,6 @@
-import React from 'react';
+'use client'
+
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/navigation';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -8,29 +10,31 @@ const AboutHeroSec = () => {
   const router = useRouter();
   const reduceMotion = useReducedMotion();
 
-  const [showModal, setShowModal] = React.useState({
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const images = [
+    "/images/abhero.png",
+    "/images/about/abheroa.png",
+    "/images/about/abherob.png",
+    "/images/about/abheroc.png",
+    "/images/about/abherod.png"
+  ];
+
+  const [showModal, setShowModal] = useState({
     contact: false,
     quote: false,
   });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % images.length);
+    }, 3000); // 3s interval like HeroSec
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   // Variants
   const fadeLeft = {
     hidden: { opacity: 0, x: -40 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-  };
-
-  const fadeRight = {
-    hidden: { opacity: 0, x: 40 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut', delay: 0.2 } },
-  };
-
-  const staggerContainer = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
   };
 
   const fadeUp = {
@@ -41,9 +45,10 @@ const AboutHeroSec = () => {
   return (
     <Con>
       <Quote mOpen={showModal.quote} handleModClose={() => setShowModal(prev => ({ ...prev, quote: false }))} />
+
+      {/* LEFT SIDE */}
       <Left
         as={motion.div}
-        variants={staggerContainer}
         initial={reduceMotion ? 'visible' : 'hidden'}
         animate="visible"
       >
@@ -68,7 +73,11 @@ const AboutHeroSec = () => {
           className="xl:flex items-center gap-2.5 hidden"
           variants={reduceMotion ? {} : fadeUp}
         >
-          <MotionBtn onClick={() => setShowModal(prev => ({ ...prev, quote: true }))}  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+          <MotionBtn
+            onClick={() => setShowModal(prev => ({ ...prev, quote: true }))}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
             Request a Quote
           </MotionBtn>
           <MotionBtn
@@ -80,22 +89,24 @@ const AboutHeroSec = () => {
           </MotionBtn>
         </motion.div>
 
-        <div className="btns w-full lg:hidden mt-5 flex flex-col items-center">
-          <MotionGBtn onClick={() => setShowModal(prev => ({ ...prev, quote: true }))} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            Request a Quote
-          </MotionGBtn>
-        </div>
-      </Left>
 
-      <Right
-        as={motion.div}
-        initial={reduceMotion ? { opacity: 1 } : 'hidden'}
-        whileInView={reduceMotion ? { opacity: 1 } : 'visible'}
-        viewport={{ once: true, amount: 0.4 }}
-        variants={reduceMotion ? {} : fadeRight}
-        style={{ willChange: 'transform' }}
-      >
-        <img className="mt-5" src="/images/abhero.png" alt="img" />
+      </Left>
+      <div className="btns w-full lg:hidden mt-5 flex flex-col items-center">
+        <MotionGBtn
+          onClick={() => setShowModal(prev => ({ ...prev, quote: true }))}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          Request a Quote
+        </MotionGBtn>
+      </div>
+      {/* RIGHT SIDE WITH SLIDE-IN */}
+      <Right>
+        <SlideImg
+          key={currentIndex} // re-mount triggers animation
+          src={images[currentIndex]}
+          alt="about hero"
+        />
       </Right>
 
       <div className="green-rec"></div>
@@ -104,15 +115,12 @@ const AboutHeroSec = () => {
   );
 };
 
+/* STYLES */
 const Con = styled.section`
   width: 100%;
   display: flex;
-  background: #111;
+  background: url('/images/abg.png') center/cover no-repeat;
   flex-direction: row-reverse;
-  background: url('/images/abg.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;  
   padding: 90px;
   position: relative;
   @media (max-width: 1200px) {
@@ -199,14 +207,31 @@ const Right = styled.div`
     width: 100%;
     padding: 30px;
   }
-  img {
-    width: 97%;
-    height: auto;
-    margin-left: 15px;
-    @media (max-width: 1200px) {
-      margin: 0;
-      width: 100%;
+`;
+
+const SlideImg = styled.img`
+  width: 97%;
+  height: auto;
+  min-height: 400px;
+  margin-left: 15px;
+  margin-top: 20px;
+  animation: slideIn 0.6s ease forwards;
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
     }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @media (max-width: 1200px) {
+    margin: 0;
+    width: 100%;
+    min-height: auto;
   }
 `;
 
@@ -224,10 +249,14 @@ const Btn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 300ms ease-in-out;
   @media (max-width: 1200px) {
     width: 100%;
     border-radius: 5px;
     height: 50px;
+  }
+  &:hover {
+    transform: scale(1.05);
   }
 `;
 

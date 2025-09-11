@@ -149,12 +149,12 @@ const Culture = ({ no }) => {
                         <h1>{cultureContent[activeIndex].title}</h1>
                         <h2>{cultureContent[activeIndex].subtitle}</h2>
                         <p>{cultureContent[activeIndex].text}</p>
-                        <span className="read-more">
+                        {/* <span className="read-more">
                             Read More
                             <svg className="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none">
                                 <path d="M1.5 7L16.5 7M16.5 7L10.875 1M16.5 7L10.875 13" stroke="#00AA59" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
-                        </span>
+                        </span> */}
                     </div>
                 </Left>
                 <Right>

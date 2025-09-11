@@ -340,11 +340,15 @@ const Btn = styled.button`
     font-size: 14px;
     font-weight: 400;
     cursor:pointer;
+    transition: 300ms ease-in-out;
     @media (max-width: 1200px) {  
         border-radius: 5px;
         height: 30px;
         padding: 7px 12px 7px 13px;
     } 
+    &:hover{
+      transform: scale(1.05);
+    }
 `;
 
 export default Quote
