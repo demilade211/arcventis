@@ -146,7 +146,7 @@ const Contact = ({ mOpen, handleModClose }) => {
                                     </p>
                                     <p className='flex mb-2'>
                                         <img className="mr-3 cursor-pointer" src="/images/contact/bmail.svg" alt="email" />
-                                        <a href="mailto:Hello@arcventives.com" className="hover:underline">Hello@arcventives.com</a>
+                                        <a href="mailto:Hello@arcventives.com" className="hover:underline">info@arcventives.com</a>
                                     </p>
                                 </div>
 
@@ -195,7 +195,7 @@ const Contact = ({ mOpen, handleModClose }) => {
 
                             </div>
 
-                            <div className="row hidden lg:block">
+                            <div className="row">
                                 <p className="mb-5">
                                     Can't wait? We get it. Chat with a customer agent on WhatsApp now.
                                 </p>

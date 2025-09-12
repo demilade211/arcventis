@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
 
 const teamMembers = [
-  { img: '/images/about/abImg3.png', name: 'Ajayi Adedayo', role: 'President & founder of Arcventives LTD' },
-  { img: '/images/about/abImg4.png', name: 'John Doe', role: 'Lead Engineer' },
-  { img: '/images/about/abImg5.png', name: 'Jane Smith', role: 'Architect' },
-  { img: '/images/about/abImg3.png', name: 'David Johnson', role: 'Project Manager' },
-  { img: '/images/about/abImg4.png', name: 'Emily Davis', role: 'Field Operative' },
-  { img: '/images/about/abImg5.png', name: 'Michael Brown', role: 'Technician' },
+  { img: '/images/about/abImg3.png', name: 'AJAYI ADEDAYO', role: 'Managing Director',deg:"B - Arch." },
+  { img: '/images/about/abImg4.png', name: 'Julius BAYOFUN', role: 'Head - Structural Engineering Services',deg:"SE License" },
+  { img: '/images/about/abImg5.png', name: 'ADEIGA ADELEKE', role: 'Project Manager',deg:"B-Eng. Chem. Eng." },
+  { img: '/images/about/abImg6.png', name: 'MALEEK OLOYEDE', role: 'Head of Electr. & Mech.Services',deg:"M. Eng. PGD E ENG.HND EPM ENG. " },
+  { img: '/images/about/abImg7.png', name: 'ALAWODE REMI', role: 'Head of services',deg:"B-Eng. Mech Eng" },
+  { img: '/images/about/abImg8.png', name: 'AJAYI TOBILOBA', role: 'IT Support',deg:"CPD" },
 ];
 
 const ITEMS_PER_PAGE = 3;
@@ -109,7 +109,7 @@ const OurTeam = () => {
                     whileHover={{ color: '#00AA59' }}
                     transition={{ duration: 0.3 }}
                   >
-                    View Profile
+                    {member.deg}
                   </motion.p>
                 </div>
               ))}
@@ -236,6 +236,7 @@ const Con = styled.section`
           }
         }
         .action {
+          max-width: 150px;
           color: #525252;
           font-family: Manrope, sans-serif;
           font-size: 18px;

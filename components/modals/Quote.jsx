@@ -20,12 +20,12 @@ const style = {
     maxHeight: "100vh",
     bgcolor: '#fff',
     borderRadius: "15px",
-    outline: "none", 
+    outline: "none",
     '@media (max-width: 500px)': {
         width: "90%",
         borderRadius: "10px",
         overflow: "auto",
-    }, 
+    },
 };
 
 
@@ -99,33 +99,78 @@ const Quote = ({ mOpen, handleModClose }) => {
                                     onChange={handleChange}
                                 />
                                 <SelectInput
-                                    name="apprenticeship_levy"
-
+                                    name="project_type"
+                                    place="Project type"
                                     options={[
-                                        { label: "Yes", value: true },
-                                        { label: "No", value: false },
+                                        { label: "Architectural Design", value: "architectural-design" },
+                                        { label: "Building Construction", value: "building-construction" },
+                                        { label: "ME Installations", value: "me-installations" },
+                                        { label: "Renovation & Remodeling", value: "renovation-remodeling" },
+                                        { label: "Construction Consultancy", value: "construction-consultancy" },
+                                        { label: "Structural Engineering", value: "structural-engineering" },
+                                        { label: "Project Management & Supervision", value: "project-management" },
+                                        { label: "Quantity Surveying & Cost Estimation", value: "quantity-surveying" },
+                                        { label: "Interior Fit-Out & Finishing", value: "interior-fitout" },
+                                        { label: "Civil & Infrastructure Works", value: "civil-infrastructure" },
                                     ]}
-                                    value={formData.apprenticeship_levy}
+                                    value={formData.project_type}
                                     important={true}
                                     onChange={(value) =>
                                         setFormData((prevState) => ({
                                             ...prevState,
-                                            apprenticeship_levy: value,
+                                            project_type: value,
                                         }))
                                     }
                                 />
+
                                 <SelectInput
-                                    name="apprenticeship_levy"
+                                    name="project_location"
+                                    place="Project location"
                                     options={[
-                                        { label: "Yes", value: true },
-                                        { label: "No", value: false },
+                                        { label: "Abia", value: "abia" },
+                                        { label: "Adamawa", value: "adamawa" },
+                                        { label: "Akwa Ibom", value: "akwa-ibom" },
+                                        { label: "Anambra", value: "anambra" },
+                                        { label: "Bauchi", value: "bauchi" },
+                                        { label: "Bayelsa", value: "bayelsa" },
+                                        { label: "Benue", value: "benue" },
+                                        { label: "Borno", value: "borno" },
+                                        { label: "Cross River", value: "cross-river" },
+                                        { label: "Delta", value: "delta" },
+                                        { label: "Ebonyi", value: "ebonyi" },
+                                        { label: "Edo", value: "edo" },
+                                        { label: "Ekiti", value: "ekiti" },
+                                        { label: "Enugu", value: "enugu" },
+                                        { label: "FCT - Abuja", value: "fct-abuja" },
+                                        { label: "Gombe", value: "gombe" },
+                                        { label: "Imo", value: "imo" },
+                                        { label: "Jigawa", value: "jigawa" },
+                                        { label: "Kaduna", value: "kaduna" },
+                                        { label: "Kano", value: "kano" },
+                                        { label: "Katsina", value: "katsina" },
+                                        { label: "Kebbi", value: "kebbi" },
+                                        { label: "Kogi", value: "kogi" },
+                                        { label: "Kwara", value: "kwara" },
+                                        { label: "Lagos", value: "lagos" },
+                                        { label: "Nasarawa", value: "nasarawa" },
+                                        { label: "Niger", value: "niger" },
+                                        { label: "Ogun", value: "ogun" },
+                                        { label: "Ondo", value: "ondo" },
+                                        { label: "Osun", value: "osun" },
+                                        { label: "Oyo", value: "oyo" },
+                                        { label: "Plateau", value: "plateau" },
+                                        { label: "Rivers", value: "rivers" },
+                                        { label: "Sokoto", value: "sokoto" },
+                                        { label: "Taraba", value: "taraba" },
+                                        { label: "Yobe", value: "yobe" },
+                                        { label: "Zamfara", value: "zamfara" },
                                     ]}
-                                    value={formData.apprenticeship_levy}
+                                    value={formData.project_location}
                                     important={true}
                                     onChange={(value) =>
                                         setFormData((prevState) => ({
                                             ...prevState,
-                                            apprenticeship_levy: value,
+                                            project_location: value,
                                         }))
                                     }
                                 />
@@ -139,6 +184,7 @@ const Quote = ({ mOpen, handleModClose }) => {
                                 />
                                 <SelectInput
                                     name="apprenticeship_levy"
+                                    place={`Start Month`}
                                     options={[
                                         { label: "Yes", value: true },
                                         { label: "No", value: false },
@@ -154,6 +200,7 @@ const Quote = ({ mOpen, handleModClose }) => {
                                 />
                                 <SelectInput
                                     name="apprenticeship_levy"
+                                    place={`Preferred duration`}
                                     options={[
                                         { label: "Yes", value: true },
                                         { label: "No", value: false },
@@ -183,6 +230,16 @@ const Quote = ({ mOpen, handleModClose }) => {
                                 }
                                 label={<p className="rl">I'd like to receive updates on similar projects</p>}
                             />
+                            {/* <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        checked={true}
+                                        sx={{ '&.Mui-checked': { color: "rgba(52, 168, 83, 1)" } }}
+                                    />
+                                }
+                                label={<p className="rl">By submitting this form, you agree to be contacted by Arcventives Ltd regarding your project.</p>}
+                            /> */}
+
                             <Btn>Request Quote Now</Btn>
                         </Right>
                     </div>

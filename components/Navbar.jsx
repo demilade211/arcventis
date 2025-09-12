@@ -32,7 +32,7 @@ const Navbar = () => {
         "Civil & Infrastructure Works"
     ];
 
-    const projects = ["Residential", "Commercial", "Industrial", "Infrastructure","Master Plan","Mixed Use",'Hospitality',"Retail","Civil & Infrastructure Works"];
+    const projects = ["Residential", "Commercial", "Industrial", "Infrastructure", "Master Plan", "Mixed Use", 'Hospitality', "Retail", "Civil & Infrastructure Works"];
 
     return (
         <LandingNavbarCon>
@@ -53,11 +53,27 @@ const Navbar = () => {
 
                         {/* Services with dropdown */}
                         <li
-                            
+
                             onMouseEnter={() => setShowServicesDrop(true)}
                             onMouseLeave={() => setShowServicesDrop(false)}
                         >
-                            {isActive("/services") && <div  className="line"></div>}<span className="cursor-pointer" onClick={() => router.push(`/services`)}>Services</span>
+                            {isActive("/services") && <div className="line"></div>}<span className="cursor-pointer flex items-center" onClick={() => router.push(`/services`)}>Services
+                                <svg
+                                    className="ml-1 dropdown-icon"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                >
+                                    <path
+                                        fillRule="evenodd"
+                                        clipRule="evenodd"
+                                        d="M5.83339 7.5C5.6686 7.50003 5.50751 7.54893 5.37051 7.6405C5.2335 7.73207 5.12671 7.8622 5.06366 8.01445C5.0006 8.1667 4.9841 8.33423 5.01624 8.49586C5.04838 8.65748 5.12771 8.80595 5.24422 8.9225L9.41089 13.0892C9.56716 13.2454 9.77909 13.3332 10.0001 13.3332C10.221 13.3332 10.4329 13.2454 10.5892 13.0892L14.7559 8.9225C14.8724 8.80595 14.9517 8.65748 14.9839 8.49586C15.016 8.33423 14.9995 8.1667 14.9365 8.01445C14.8734 7.8622 14.7666 7.73207 14.6296 7.6405C14.4926 7.54893 14.3315 7.50003 14.1667 7.5L5.83339 7.5Z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+                            </span>
                             {showServicesDrop && (
                                 <DropCon >
                                     {services.map((s, idx) => (
@@ -71,11 +87,29 @@ const Navbar = () => {
 
                         {/* Projects with dropdown */}
                         <li
-                             
+
                             onMouseEnter={() => setShowProjectsDrop(true)}
                             onMouseLeave={() => setShowProjectsDrop(false)}
                         >
-                            {isActive("/all-projects") && <div className="line"></div>}<span className="cursor-pointer" onClick={() => router.push(`/all-projects`)}>Projects</span>
+                            {isActive("/all-projects") && <div className="line"></div>}
+                            <span className="cursor-pointer flex items-center" onClick={() => router.push(`/all-projects`)}>
+                                Projects
+                                <svg
+                                    className="ml-1 dropdown-icon"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                >
+                                    <path
+                                        fillRule="evenodd"
+                                        clipRule="evenodd"
+                                        d="M5.83339 7.5C5.6686 7.50003 5.50751 7.54893 5.37051 7.6405C5.2335 7.73207 5.12671 7.8622 5.06366 8.01445C5.0006 8.1667 4.9841 8.33423 5.01624 8.49586C5.04838 8.65748 5.12771 8.80595 5.24422 8.9225L9.41089 13.0892C9.56716 13.2454 9.77909 13.3332 10.0001 13.3332C10.221 13.3332 10.4329 13.2454 10.5892 13.0892L14.7559 8.9225C14.8724 8.80595 14.9517 8.65748 14.9839 8.49586C15.016 8.33423 14.9995 8.1667 14.9365 8.01445C14.8734 7.8622 14.7666 7.73207 14.6296 7.6405C14.4926 7.54893 14.3315 7.50003 14.1667 7.5L5.83339 7.5Z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+                            </span>
                             {showProjectsDrop && (
                                 <DropCon>
                                     {projects.map((p, idx) => (
@@ -120,7 +154,7 @@ const Navbar = () => {
                         <li onClick={() => router.push(`/about`)}>About us</li>
 
                         {/* Mobile Services dropdown */}
-                        <li onClick={() => router.push(`/services`)} >Services</li>
+                        <li onClick={() => router.push(`/services`)} >Services </li>
                         {showServicesDrop && (
                             <DropCon>
                                 {services.map((s, idx) => (
@@ -204,10 +238,18 @@ const Bottom = styled.div`
                 @media (max-width: 1360px) {  
                     margin:0 20px;
                 }
-                &:hover {  
-                    color: #FFF; /* Remove background color on hover */  
+                &:hover {
+                    color: #00AA59;  
                     transition: 200ms ease-in;
-                } 
+                }
+
+                .dropdown-icon {
+                    transition: transform 0.2s ease;
+                }
+
+                &:hover .dropdown-icon {
+                    transform: rotate(180deg);
+                }
                 .line{
                     width: 10px;
                     height: 13px; 
