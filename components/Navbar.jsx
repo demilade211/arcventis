@@ -53,13 +53,13 @@ const Navbar = () => {
 
                         {/* Services with dropdown */}
                         <li
-                             
+                            
                             onMouseEnter={() => setShowServicesDrop(true)}
                             onMouseLeave={() => setShowServicesDrop(false)}
                         >
-                            {isActive("/services") && <div  className="line"></div>}Services
+                            {isActive("/services") && <div  className="line"></div>}<span className="cursor-pointer" onClick={() => router.push(`/services`)}>Services</span>
                             {showServicesDrop && (
-                                <DropCon>
+                                <DropCon >
                                     {services.map((s, idx) => (
                                         <div key={idx} className="item" onClick={() => router.push(`/services/${s}`)}>
                                             {s}
@@ -75,7 +75,7 @@ const Navbar = () => {
                             onMouseEnter={() => setShowProjectsDrop(true)}
                             onMouseLeave={() => setShowProjectsDrop(false)}
                         >
-                            {isActive("/all-projects") && <div className="line"></div>}Projects
+                            {isActive("/all-projects") && <div className="line"></div>}<span className="cursor-pointer" onClick={() => router.push(`/all-projects`)}>Projects</span>
                             {showProjectsDrop && (
                                 <DropCon>
                                     {projects.map((p, idx) => (
@@ -295,7 +295,7 @@ const DropCon = styled.div`
   background: #FFF;
   padding: 10px 3px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  z-index: 10;
+  z-index: 31;
 
   .item {
     padding: 10px 20px;

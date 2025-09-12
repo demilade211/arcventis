@@ -1,16 +1,19 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const ServiceDescription = ({description}) => {
+const ServiceDescription = ({ description1, description2, description3, image }) => {
     return (
         <Con>
-            <p> 
-                {description}
+            <p>
+                {description1}
+                <br /><br />
+                {description2}
+                <br /><br />
+                {description3}
             </p>
 
             <Right>
-                <div className='canva'></div>
-                <div></div>
+                <img src={image} alt="Service" />
             </Right>
         </Con>
     )
@@ -18,7 +21,7 @@ const ServiceDescription = ({description}) => {
 
 const Con = styled.section`  
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,14 +29,19 @@ const Con = styled.section`
     background: rgba(241, 241, 241, 1);
     padding: 90px;
     gap: 50px;
+
     @media (max-width: 1200px) { 
         flex-direction: column;
-        align-items: start;
-        height: auto;
+        align-items: flex-start;
+        min-height: auto;
         padding: 30px;
     }
-    p{
+
+    p {
         width: 50%;
+        line-height: 1.6;
+        font-size: 1rem;
+
         @media (max-width: 1200px) { 
             width: 100%;
         }
@@ -42,15 +50,18 @@ const Con = styled.section`
 
 const Right = styled.div` 
     width: 50%;
+
     @media (max-width: 1200px) { 
         width: 100%;
     }
-    .canva{
+
+    img {
         width: 100%;
-        height: 464px;
-        background: rgba(238, 238, 238, 1);
+        height: auto;
+        max-height: 464px;
+        object-fit: cover;
         border-radius: 10px;
     }
-`
+`;
 
 export default ServiceDescription
