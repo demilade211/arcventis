@@ -10,7 +10,7 @@ const ProjectCard = ({ image, title, description }) => {
         <div className="green-con">
           <h1>{title}</h1>
           <p>{description}</p>
-          <Link href={"/products"} className="view">View All</Link>
+          <Link href={`/all-projects/${title}`} className="view">View All</Link>
         </div>
       </div>
     </Con>

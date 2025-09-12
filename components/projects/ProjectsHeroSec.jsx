@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { useRouter, usePathname } from 'next/navigation'
 
-const ProjectsHeroSec = () => {
+const ProjectsHeroSec = ({projectName}) => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -15,9 +15,9 @@ const ProjectsHeroSec = () => {
     <Con>
       <Top>
         <p className='sub cursor-pointer'>
-          <span onClick={() => router.push(`/`)}>{"Home > "}</span> <span onClick={() => router.push(`/services`)}>{"Services >> "}</span> <span onClick={() => router.push(`/all-projects`)}>{"Architectural Design >>> "}</span> <span className='text-[#00AA59]'> Dreamview Estate</span>
+          <span onClick={() => router.push(`/`)}>{"Home > "}</span> <span onClick={() => router.push(`/all-projects`)}>{"Projects >> "}</span> <span className='text-[#00AA59]' onClick={() => router.push(`/all-projects/${projectName}`)}>{projectName}</span>  
         </p>
-        <h1 className='mb-8'>RESIDENTIAL PROJECTS</h1>
+        <h1 className='mb-8'>{projectName}</h1>
       </Top>
       <Bottom>
         <img className="mt-5 object-center" src="/images/projects/proimg.png" alt="img" />

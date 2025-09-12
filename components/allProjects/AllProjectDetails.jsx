@@ -6,48 +6,48 @@ const AllProjectDetails = () => {
     const projects = [
         {
             image: "/images/projects/proImg1.png",
-            title: 'E-commerce Website',
-            description: 'A comprehensive e-commerce platform with user-friendly interface and secure payment gateway.'
+            title: 'Residential',
+            description: 'Design and construction of modern homes, apartments, and estates with durable structures and quality finishes.'
         },
         {
             image: "/images/projects/proImg1.png",
-            title: 'Portfolio Website',
-            description: 'A sleek and modern portfolio website to showcase creative work and projects.'
+            title: 'Commercial',
+            description: 'Development of office spaces, corporate complexes, and business facilities tailored for productivity and growth.'
         },
         {
             image: "/images/projects/proImg1.png",
-            title: 'Blog Platform',
-            description: 'A dynamic blog platform with content management system and social sharing features.'
+            title: 'Industrial',
+            description: 'Construction of factories, warehouses, and production plants with efficient layouts and safety compliance.'
         },
         {
             image: "/images/projects/proImg1.png",
-            title: 'Corporate Website',
-            description: 'A professional corporate website with detailed service offerings and client testimonials.'
+            title: 'Infrastructure',
+            description: 'Execution of large-scale infrastructure projects including roads, bridges, and public utilities.'
         },
         {
             image: "/images/projects/proImg1.png",
-            title: 'Landing Page',
-            description: 'An engaging landing page designed to capture leads and promote products effectively.'
+            title: 'Master Plan',
+            description: 'Comprehensive master planning for communities, estates, and urban developments with sustainable design.'
         },
         {
             image: "/images/projects/proImg1.png",
-            title: 'Educational Portal',
-            description: 'An interactive educational portal with course management and student tracking features.'
+            title: 'Mixed Use',
+            description: 'Integrated projects combining residential, commercial, and leisure facilities for modern living.'
         },
         {
             image: "/images/projects/proImg1.png",
-            title: 'E-commerce Website',
-            description: 'A comprehensive e-commerce platform with user-friendly interface and secure payment gateway.'
+            title: 'Hospitality',
+            description: 'Development of hotels, resorts, and leisure centers with world-class amenities and elegant finishes.'
         },
         {
             image: "/images/projects/proImg1.png",
-            title: 'Portfolio Website',
-            description: 'A sleek and modern portfolio website to showcase creative work and projects.'
+            title: 'Retail',
+            description: 'Construction of shopping malls, retail outlets, and markets designed for high foot traffic and efficiency.'
         },
         {
             image: "/images/projects/proImg1.png",
-            title: 'Blog Platform',
-            description: 'A dynamic blog platform with content management system and social sharing features.'
+            title: 'Civil & Infrastructure Works',
+            description: 'Specialized civil engineering projects including drainage, water systems, and heavy structural works.'
         },
     ];
 
@@ -57,10 +57,10 @@ const AllProjectDetails = () => {
                 <div className="gap">
                     {projects.map((project, index) => (
                         <div className="mt-2 mb-2" key={index}>
-                            <ProjectCard 
-                                image={project.image} 
-                                title={project.title} 
-                                description={project.description} 
+                            <ProjectCard
+                                image={project.image}
+                                title={project.title}
+                                description={project.description}
                             />
                         </div>
                     ))}
